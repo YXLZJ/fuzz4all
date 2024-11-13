@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <iterator>
+#include <limits>
+
+int main() {
+    std::vector<std::pair<char, int>> data = {{'a', 1}, {'b', 3}, {'c', 5}};
+    
+    auto min_value = *std::min_element(data.begin(), data.end(), [](const auto& a, const auto& b) { return a.second < b.second; });
+    std::cout << "Min value: " << min_value.first << ", Value: " << min_value.second << '\n';
+    
+    auto max_value = *std::max_element(data.begin(), data.end(), [](const auto& a, const auto& b) { return a.second < b.second; });
+    std
+    std::cout << "Max value: " << max_value.first << ", Value: " << max_value.second << '\n';
+    
+    int sum = 0;
+    for (const auto& pair : data) {
+        sum += pair.second;
+    }
+    std::cout << "Sum of values: " << sum << '\n';
+}

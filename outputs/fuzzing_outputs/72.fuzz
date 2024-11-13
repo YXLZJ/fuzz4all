@@ -1,0 +1,17 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<std::string> names = {"Alice", "Bob", "Charlie"};
+    auto sort_names = [](const std::string& a, const std::string& b) { return a.length() > b.length(); };
+    
+    std::sort(names.begin(), names.end(), sort_names);
+    
+    for (const auto& name : names) {
+        std::cout << "\"" << name << "\"\n";
+    }
+    
+    return 0;
+}

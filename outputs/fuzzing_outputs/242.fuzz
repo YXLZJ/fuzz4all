@@ -1,0 +1,17 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<string> words = {"hello", "world", "complexity"};
+    auto compare_lengths = [](const string& a, const string& b) { return a.size() > b.size(); };
+    
+    sort(words.begin(), words.end(), compare_lengths);
+    
+    for (const auto& word : words) {
+        cout << word << " ";
+    }
+    
+    return 0;
+}

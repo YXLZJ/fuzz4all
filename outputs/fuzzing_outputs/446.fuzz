@@ -1,0 +1,9 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    auto f = [](auto x){ return x * x + 1; };
+    int n = 5;
+    cout << "Result: " << f(n) << endl;
+    return 0;
+}

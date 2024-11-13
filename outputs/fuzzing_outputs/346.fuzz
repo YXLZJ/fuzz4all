@@ -1,0 +1,21 @@
+#include <iostream>
+#include <string>
+#include <regex>
+#include <algorithm>
+#include <iterator>
+#include <sstream>
+#include <vector>
+
+int main() {
+    std::string input = "Eterasing";
+    std::regex pattern("\\w+");
+    
+    std::smatch matches;
+    if (std::regex_search(input, matches, pattern)) {
+        for (const auto& match : matches) {
+            std::cout << match.str() << " ";
+        }
+    }
+
+    return 0;
+}

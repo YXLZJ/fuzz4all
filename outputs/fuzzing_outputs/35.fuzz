@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <map>
+#include <string>
+using namespace std;
+
+int main() {
+    string input, line;
+    cout << "Ent: ";
+    getline(cin, input);
+
+    vector<string> lines = split(input, '\n');
+    map<char, int> charCounts;
+
+    for (const auto& l : lines) {
+        transform(l.begin(), l.end(), l.begin(), ::tolower);
+        for (auto c : l) {
+            if (!isalpha(c)) continue;
+            ++charCounts[c];
+        }
+    }
+
+    auto sortedPairs = sortByValue(charCounts);
+    for (const auto& p : sortedPairs) {
+        cout << p.first << ": " << p.second << '\n';
+    }
+
+    return 0;
+}

@@ -1,0 +1,15 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string name, greeting;
+    
+    cout << "Enter your name: ";
+    getline(cin, name);
+    
+    greeting = "Hello, " + name + "!";
+    cout << greeting << endl;
+    
+    return 0;
+}

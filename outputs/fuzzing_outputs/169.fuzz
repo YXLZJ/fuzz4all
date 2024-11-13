@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Using C++17 structured binding to unpack a tuple
+    auto [x, y] = make_tuple(3.0, 4.5);
+    
+    // Using if constexpr for compile-time condition checking (C++17 feature)
+    if constexpr (is_floating_point<decltype(x)>::value && is_floating_point<decltype(y)>::value) {
+        cout << "Both x and y are floating point numbers." << endl;
+        
+        // Using C++17 fold expressions to perform arithmetic operations on multiple values (in this case, just two)
+        auto result = (x + y);
+        cout << "Result of addition: " << result << endl;
+    } else {
+        cout << "At least one of x and y is not a floating point number." << endl;
+    }
+    
+    return 0;
+}

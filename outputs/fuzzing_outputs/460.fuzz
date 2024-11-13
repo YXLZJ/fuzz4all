@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    auto lambda = [] (auto x, auto y) -> decltype(x + y) { return x + y; };
+    
+    int a = 5;
+    double b = 10.2;
+    
+    cout << "Lambda function result: " << lambda(a, b);
+    
+    return 0;
+}

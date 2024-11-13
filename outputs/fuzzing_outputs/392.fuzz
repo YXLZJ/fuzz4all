@@ -1,0 +1,13 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+int main() {
+    std::vector<std::string> words = {"nuosm", "ine", "s", "vto", "pp", "bae", "sb", "no", "ectr", "recmp_ee", "odtriand", "i&", "un"};
+    
+    for (const auto &word : words) {
+        std::cout << word << ' ';
+    }
+
+    return 0;
+}

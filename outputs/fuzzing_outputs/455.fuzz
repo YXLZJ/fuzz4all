@@ -1,0 +1,24 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+struct Transaction {
+    string type;
+    int amount;
+};
+
+void processTransactions(const vector<Transaction>& transactions) {
+    for (const auto& transaction : transactions) {
+        if (transaction.type == "credit" && transaction.amount > 50) {
+            cout << "Credit: " << transaction.amount << endl;
+        } else if (transaction.type == "debit") {
+            cout << "Debit: " << transaction.amount << endl;
+        }
+    }
+}
+
+int main() {
+    vector<Transaction> transactions = {{"credit", 100}, {"debit", 25}};
+    processTransactions(transactions);
+    return 0;
+}

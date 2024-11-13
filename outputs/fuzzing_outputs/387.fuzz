@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<std::string> words = {"a", "b", "c", "d"};
+    
+    auto sort_words = [](const std::vector<std::string>& v) -> std::vector<std::string> {
+        return std::sort(v.begin(), v.end());
+    };
+
+    auto reverse_words = [](const std::vector<std::string>& v) -> std::vector<std::string> {
+        return std::reverse(v.begin(), v.end());
+    };
+    
+    auto transform_words = [](const std::vector<std::string>& v, const char* prefix) -> std::vector<std::string> {
+        std::vector<std::string> result;
+        
+        for (auto& word : v) {
+            result.push_back(prefix + word);
+        }
+        
+        return result;
+    };
+    
+    auto words_with_a = transform_words(sort_words(words), "a");
+    auto reversed_words = reverse_words(words_with_a);
+    
+    for (const auto& word : reversed_words) {
+        std::cout << word << ' ';
+    }
+    
+    return 0;
+}

@@ -1,0 +1,20 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::string input = "Wr;   egen";
+    std::vector<char> v(input.begin(), input.end());
+    
+    // Use new C++ features in a complex way
+    auto it = std::find_if(v.begin(), v.end(), [](char c) { return !std::isalnum(c); });
+    if (it != v.end()) {
+        *it = ' ';
+    }
+    
+    // Print the modified string
+    for (const char& c : v) {
+        std::cout << c;
+    }
+    return 0;
+}

@@ -1,0 +1,17 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::string hello = "Hello, World!";
+    int i;
+    
+    for (i = 0; i < hello.length(); ++i) {
+        if (hello[i] == 'l') {
+            std::cout << "Found l at position: " << i + 1 << '\n';
+        }
+    }
+
+    return 0;
+}

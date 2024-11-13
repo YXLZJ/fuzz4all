@@ -1,0 +1,13 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<string> vec = {"one", "two", "three"};
+    
+    for (auto& element : vec) {
+        cout << element << endl;
+    }
+
+    return 0;
+}

@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    constexpr int initialValue = 1;
+    auto result = [initialValue]() mutable -> int {
+        return (initialValue + 17);
+    };
+    
+    cout << "Result: " << result() << endl;
+    return 0;
+}

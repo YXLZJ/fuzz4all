@@ -1,0 +1,20 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<double> numbers = {1.2, 3.4, 5.6, 7.8};
+    
+    // Using C++17 structured binding to unpack a tuple
+    auto [min_value, max_value] = std::minmax(numbers);
+
+    // Using C++17 if constexpr for compile-time condition checking
+    if constexpr (std::is_floating_point<decltype(min_value)>::value) {
+        std::cout << "Minimum value: " << min_value << '\n';
+        std::cout << "Maximum value: " << max_value << '\n';
+    } else {
+        std::cout << "Not a floating point type.\n";
+    }
+    
+    return 0;
+}

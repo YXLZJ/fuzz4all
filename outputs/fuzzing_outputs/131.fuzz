@@ -1,0 +1,14 @@
+#include <iostream>
+#include <array>
+#include <algorithm>
+
+int main() {
+    std::array<std::string, 5> arr = {"one", "two", "three", "four", "five"};
+    auto itr = std::begin(arr);
+    
+    for (; itr != std::end(arr); ++itr) {
+        std::cout << *itr << ' ';
+    }
+
+    return 0;
+}

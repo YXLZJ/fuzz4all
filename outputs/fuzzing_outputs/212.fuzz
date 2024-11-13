@@ -1,0 +1,15 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    string input = "complex C++ features";
+    vector<char> v(input.begin(), input.end());
+    
+    sort(v.begin(), v.end());
+    cout << string(v.begin(), v.end()) << endl;
+
+    return 0;
+}

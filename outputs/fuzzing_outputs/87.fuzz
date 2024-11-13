@@ -1,0 +1,22 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <unordered_set>
+
+int main() {
+    std::istringstream iss("Please create a very short program which uses new C++ features in a complex way");
+    std::unordered_multiset<std::string> uniqueWords;
+    
+    for (std::string word; iss >> word;) {
+        auto it = uniqueWords.insert(word).first;
+        if (!it->second) {
+            std::cout << *it++ << '\n';
+        } else {
+            ++it->second;
+        }
+    }
+    
+    return 0;
+}

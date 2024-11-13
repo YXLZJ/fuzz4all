@@ -1,0 +1,12 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+int main() {
+  std::vector<std::string> v = {"Hello", "World"};
+  
+  for (auto& s : v) {
+    std::cout << s << '\n';
+  }
+}

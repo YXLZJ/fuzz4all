@@ -1,0 +1,8 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    auto lambda = [](double x, double y) -> double { return x + y; };
+    cout << "Lambda function result: " << lambda(3.5, 4.2);
+    return 0;
+}

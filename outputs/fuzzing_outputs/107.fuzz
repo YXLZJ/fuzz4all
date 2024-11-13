@@ -1,0 +1,21 @@
+#include <iostream>
+#include <vector>
+#include <numeric>
+#include <algorithm>
+
+int main() {
+    std::vector<double> v(10);
+    for (auto& i : v) {
+        i = static_cast<double>(i + 1);
+    }
+
+    double sum = std::accumulate(v.begin(), v.end(), 0.0);
+    auto maxIt = std::max_element(v.begin(), v.end());
+    auto minIt = std::min_element(v.begin(), v.end());
+
+    std::cout << "Sum: " << sum << '\n';
+    std::cout << "Max: " << *maxIt << '\n';
+    std::cout << "Min: " << *minIt << '\n';
+
+    return 0;
+}

@@ -1,0 +1,22 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <utility>
+
+int main() {
+    std::pair<std::string, int> pairs[] = {{"a", 1}, {"b", 2}, {"c", 3}};
+    
+    auto sum_of_pairs = [](const std::vector<std::pair<std::string, int>>& v) -> int {
+        return std::accumulate(v.begin(), v.end(), 0, [](int a, const std::pair<std::string, int>& p){return a + p.second;});
+    };
+    
+    auto sorted_pairs = [&]() -> decltype(auto) {
+        std::vector<std::pair<std::string, int>> v(pairs, pairs+3);
+        std::sort(v.begin(), v.end(), [] (const std::pair<std::string, int>& a, const std::pair<std::string, int>& b) { return a.first < b.first; });
+        return sorted_pairs;
+    };
+    
+    auto result = sum_of_pairs(sorted_pairs());
+    std::cout << "Sum of pairs: " << result << '\n';
+}

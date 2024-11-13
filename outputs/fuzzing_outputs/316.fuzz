@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+
+    // Use new C++ features in complex ways
+    auto v = [](const char c) -> bool { return c == 'a' || c == 'r'; };
+    std::vector<char> result;
+    std::copy_if(input.begin(), input.end(), std::back_inserter(result), v);
+
+    // Use lambda function to print the vector elements
+    auto print = [](const std::vector<char>& vec) {
+        for (auto c : vec) {
+            std::cout << c;
+        }
+        std::cout << '\n';
+    };
+
+    print(result);
+
+    return 0;
+}

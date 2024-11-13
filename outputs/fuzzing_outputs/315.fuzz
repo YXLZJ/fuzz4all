@@ -1,0 +1,22 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <iterator>
+
+int main() {
+    std::vector<std::string> words = {"apple", "banana", "cherry", "date"};
+    
+    // Use C++17 structured binding to unpack a pair of iterators
+    auto [first, last] = std::minmax_element(words.begin(), words.end());
+    
+    if (first != last) {
+        // Print the first and last elements using ostream_iterator
+        std::copy(first, last + 1, std::ostream_iterator<std::string>(std::cout, " "));
+    } else {
+        std::cout << "The vector is empty.";
+    }
+    
+    return 0;
+}

@@ -1,0 +1,11 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<long long int> vec = {1, 2, 3};
+    for (auto& n : vec) {
+        cout << n * n << " ";
+    }
+    return 0;
+}

@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    auto a = [] (auto&&... args) -> decltype(args.first, void()) {
+        for (const auto& arg : args) cout << arg.second << " ";
+        cout << endl;
+    }(std::make_pair("Hello", 'H'), std::make_pair("World", 'W'));
+    
+    return 0;
+}

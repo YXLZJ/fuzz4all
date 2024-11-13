@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string>
+#include <regex>
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    getline(std::cin, input);
+
+    // Use regex to find all occurrences of 'll' followed by any character and then 'rl'.
+    std::regex pattern("ll.?rl");
+    auto words_begin = std::sregex_iterator(input.begin(), input.end(), pattern);
+    auto words_end = std::sregex_iterator();
+
+    int count = 0;
+    for (std::sregex_iterator i = words_begin; i != words_end; ++i) {
+        if (*i).length() == 4) { // Checking the length of matched string.
+            std::cout << *i << " ";
+            count++;
+        }
+    }
+
+    std::cout << "\nTotal occurrences: " << count << std::endl;
+
+    return 0;
+}

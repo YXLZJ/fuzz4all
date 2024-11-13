@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <regex>
+using namespace std;
+
+int main() {
+    string input = "Hello, World!";
+    
+    // Use regex to find all words in the input string.
+    regex word_regex("\\w+");
+    vector<string> words(sregex_token_iterator(input.begin(), input.end(), word_regex), sregex_token_iterator());
+    
+    // Sort the words alphabetically using a lambda function and sort algorithm.
+    sort(words.begin(), words.end(), [](const string& a, const string& b) { return a < b; });
+    
+    // Calculate the sum of lengths of all sorted words.
+    int total_length = accumulate(words.begin(), words.end(), 0, [](int acc, const string& s) { return acc + s.size(); });
+    
+    // Print each word on a new line and then print the total length at the end.
+    for (const auto& w : words) {
+        cout << w << endl;
+    }
+    cout << "Total Length: " << total_length << endl;
+    
+    return 0;
+}

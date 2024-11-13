@@ -1,0 +1,16 @@
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string input;
+    while (std::getline(std::cin, input)) {
+        if (!input.empty()) {
+            auto reversed = input;
+            std::reverse(reversed.begin(), reversed.end());
+            std::cout << "Reversed: " << reversed << '\n';
+        } else {
+            break;
+        }
+    }
+    return 0;
+}

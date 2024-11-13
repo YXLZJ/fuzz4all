@@ -1,0 +1,19 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+int main() {
+    std::vector<std::pair<size_t, size_t>> intervals;
+    
+    for (size_t i = 1; i <= 5; ++i) {
+        intervals.push_back({i * 2, i * 3});
+    }
+    
+    std::cout << "Intervals: ";
+    for (const auto& interval : intervals) {
+        std::cout << '[' << interval.first << ", " << interval.second << ")";
+    }
+    std::cout << '\n';
+    
+    return 0;
+}

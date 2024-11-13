@@ -1,0 +1,11 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+int main() {
+    std::vector<std::string> words = {"Hello", "World"};
+    for (auto& word : words) {
+        std::cout << word << ' ';
+    }
+    return 0;
+}

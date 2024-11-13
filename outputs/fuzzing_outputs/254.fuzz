@@ -1,0 +1,9 @@
+#include <iostream>
+#include <tuple>
+using namespace std;
+
+int main() {
+    auto t = make_tuple(1, "Hello");
+    cout << get<0>(t) << ", " << get<1>(t);
+    return 0;
+}

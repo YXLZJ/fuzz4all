@@ -1,0 +1,15 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<std::string> words = {"apple", "banana", "cherry", "date"};
+    
+    // Use range-based for loop (C++11 feature) to iterate over the vector.
+    for(const auto& word : words) {
+        std::cout << word << ' ';
+    }
+    
+    return 0;
+}

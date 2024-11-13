@@ -1,0 +1,17 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<string> words = {"apple", "banana", "cherry"};
+    
+    // Sort the vector using a lambda function as comparator
+    sort(words.begin(), words.end(), [](const string& a, const string& b) { return a < b; });
+    
+    for (const auto& word : words) {
+        cout << word << endl;
+    }
+    
+    return 0;
+}

@@ -1,0 +1,22 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<int> v = {1, 2, 3, 4, 5};
+    
+    // Using lambda function to find the sum of elements in vector
+    auto sum_of_elements = [&v]() -> int {
+        return std::accumulate(v.begin(), v.end(), 0);
+    };
+
+    std::cout << "Sum of elements: " << sum_of_elements() << std::endl;
+    
+    // Using range-based for loop to print vector elements
+    for (const auto& elem : v) {
+        std::cout << elem << ' ';
+    }
+    std::cout << '\n';
+
+    return 0;
+}

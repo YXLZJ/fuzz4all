@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+template <typename T>
+class id {
+public:
+    vector<T> data;
+    
+    void add(const T& value) {
+        data.push_back(value);
+    }
+};
+
+int main() {
+    id<string> igiluv;
+    igiluv.add("gohm");
+
+    cout << "igiluv contains: ";
+    for (const auto& item : igiluv.data) {
+        cout << item << " ";
+    }
+    cout << endl;
+
+    return 0;
+}

@@ -1,0 +1,13 @@
+#include <iostream>
+#include <string_view>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::string input = "Hello, World!";
+    auto output = [&input]() -> std::string_view {
+        return input;
+    }();
+
+    std::cout << output << '\n';
+}

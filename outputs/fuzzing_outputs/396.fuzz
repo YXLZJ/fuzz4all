@@ -1,0 +1,17 @@
+#include <iostream>
+#include <string_view>
+using namespace std;
+
+int main() {
+    string input;
+    while (getline(cin, input)) {
+        if (!input.empty()) {
+            auto view = string_view(input);
+            for (auto i : view) {
+                cout << static_cast<char>(i + 1);
+            }
+            cout << endl;
+        }
+    }
+    return 0;
+}

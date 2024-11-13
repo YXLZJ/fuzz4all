@@ -1,0 +1,15 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <utility>
+
+int main() {
+    std::pair<std::string, int> a = {"baana", 5};
+    const std::pair<std::string, int>& d = a;
+    
+    for (const auto& item : d) {
+        if (item.second == 7) {
+            std::cout << "Found: " << item.first << ", Value: " << item.second << std::endl;
+        }
+    }
+}

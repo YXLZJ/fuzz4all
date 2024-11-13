@@ -1,0 +1,19 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<std::string> words = {"apple", "banana", "cherry", "date"};
+    
+    // Use lambda function to sort the vector in reverse order
+    auto compare = [](const std::string& a, const std::string& b) { return a > b; };
+    std::sort(words.begin(), words.end(), compare);
+
+    // Print sorted vector using range-based for loop
+    for (const auto& word : words) {
+        std::cout << word << " ";
+    }
+    
+    return 0;
+}

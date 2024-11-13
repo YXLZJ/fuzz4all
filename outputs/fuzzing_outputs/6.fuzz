@@ -1,0 +1,13 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<string> words = {"apple", "banana", "cherry"};
+    
+    for (auto& word : words) {
+        cout << word << endl;
+    }
+
+    return 0;
+}

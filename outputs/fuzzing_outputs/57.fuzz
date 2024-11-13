@@ -1,0 +1,19 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    string input = "Hello!";
+    int length = input.length();
+    
+    struct Indices {
+        size_t start, end;
+    } indices{0, length};
+    
+    reverse(input.begin(), input.end());
+    
+    cout << "Reversed: " << input << endl;
+  
+ return 0;
+}

@@ -1,0 +1,14 @@
+#include <iostream>
+#include <string_view>
+
+int main(int argc, char* argv[]) {
+    std::string_view sv = "Hello World!";
+    if (argc > 1) {
+        for (size_t i = 1; i < argc; ++i) {
+            std::cout << argv[i] << ' ';
+        }
+    } else {
+        std::cout << sv;
+    }
+    return 0;
+}

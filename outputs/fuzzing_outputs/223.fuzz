@@ -1,0 +1,16 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+  vector<char> vec = {'a', 'b', 'c'};
+  auto it = find(vec.begin(), vec.end(), 'b');
+  
+  if (it != vec.end()) {
+    cout << *it << endl;
+  } else {
+    cout << "Element not found" << endl;
+  }
+  
+  return 0;}

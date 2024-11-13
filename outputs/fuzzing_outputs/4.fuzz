@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<int> v = {1, 2, 3, 4, 5};
+    
+    // Using new C++ features in a complex way:
+    auto it = find_if(v.begin(), v.end(), [](int i) { return i % 2 == 0; });
+    if (it != v.end()) {
+        cout << "Found even number: " << *it << endl;
+    } else {
+        cout << "No even numbers found." << endl;
+    }
+    
+    // Using lambda function to sort vector in descending order
+    sort(v.begin(), v.end(), [](int a, int b) { return a > b; });
+    for (auto i : v) {
+        cout << i << " ";
+    }
+    cout << endl;
+    
+    // Using new C++ feature: auto keyword to deduce type of variable
+    auto sum = accumulate(v.begin(), v.end(), 0);
+    cout << "Sum of vector elements: " << sum << endl;
+    
+    return 0;
+}

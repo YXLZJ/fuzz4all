@@ -1,0 +1,21 @@
+#include <iostream>
+#include <string>
+#include <regex>
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    getline(std::cin, input);
+
+    // Using regex to find all occurrences of 'a' followed by any character and then 'b'.
+    std::regex pattern("ab\\w*");
+    auto words_begin = std::sregex_iterator(input.begin(), input.end(), pattern);
+    auto words_end = std::sregex_iterator();
+
+    for (std::sregex_iterator i = words_begin; i != words_end; ++i) {
+        std::smatch match = *i;
+        std::cout << match[0] << '\n';
+    }
+
+    return 0;
+}

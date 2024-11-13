@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+
+int main() {
+    std::vector<int> vec = {3, 7};
+    
+    auto sum_of_squares = [&vec]() -> int {
+        return std::inner_product(vec.begin(), vec.end(), vec.begin(), 0);
+    };
+    
+    for (size_t i = 1; i <= vec.size(); ++i) {
+        std::cout << "Sum of squares up to index " << i - 1 << ": ";
+        std::cout << sum_of_squares() << '\n';
+        
+        if (vec[i] != vec[0]) {
+            vec.push_back(vec[i]);
+        }
+    }
+    
+    return 0;
+}

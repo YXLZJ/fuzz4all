@@ -1,0 +1,14 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<int> v{1, 2, 3, 4, 5};
+    
+    // Using C++17 structured binding to unpack a tuple
+    auto [first, second] = std::minmax_element(v.begin(), v.end());
+    
+    std::cout << "Min: " << *first << ", Max: " << *second << '\n';
+    
+    return 0;
+}

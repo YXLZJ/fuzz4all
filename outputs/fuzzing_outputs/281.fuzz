@@ -1,0 +1,9 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+int main() {
+    std::string word = "Programming";
+    std::reverse(word.begin(), word.end());
+    std::cout << word;
+}

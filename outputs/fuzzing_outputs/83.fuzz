@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <iterator>
+
+int main() {
+    std::vector<int> numbers;
+    int n, x;
+    
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    for (int i = 0; i < n; ++i) {
+        std::cin >> x;
+        numbers.push_back(x);
+    }
+    
+    auto sum = std::accumulate(numbers.begin(), numbers.end(), 0);
+    auto mean = static_cast<double>(sum) / n;
+    
+    for (int i : numbers) {
+        if (i % 2 == 0) {
+            std::cout << i << " ";
+        }
+    }
+    
+    std::cout << "\nSum: " << sum << "\nMean: " << mean;
+    
+    return 0;
+}

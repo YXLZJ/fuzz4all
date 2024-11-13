@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<std::string> names = {"Alice", "Bob", "Charlie"};
+    
+    // Use range-based for loop (C++11 feature)
+    for(const auto& name : names) {
+        std::cout << name << '\n';
+    }
+    
+    // Use lambda function with find_if algorithm (C++14 feature)
+    auto isAlice = [](const std::string& str){ return str == "Alice"; };
+    auto it = std::find_if(names.begin(), names.end(), isAlice);
+    
+    if(it != names.end()) {
+        std::cout << *it << " found\n";
+    } else {
+        std::cout << "Not found\n";
+    }
+    
+    return 0;
+}

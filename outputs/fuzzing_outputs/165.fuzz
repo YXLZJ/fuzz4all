@@ -1,0 +1,10 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    string word = "antelope";
+    reverse(word.begin(), word.end());
+    cout << word << endl;
+}

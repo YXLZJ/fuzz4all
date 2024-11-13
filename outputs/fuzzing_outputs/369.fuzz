@@ -1,0 +1,17 @@
+#include <iostream>
+#include <string_view>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<std::string> words = {"apple", "banana", "cherry"};
+    
+    auto printWordsReversed = [&words]() -> void {
+        for (auto word : words) {
+            std::cout << std::string_view(word.rbegin(), word.rend()) << ' ';
+        }
+        std::cout << '\n';
+    };
+    
+    printWordsReversed();
+}

@@ -1,0 +1,9 @@
+#include <iostream>
+int main() {
+    std::string reversed_str;
+    for (char c : "ernclurce") {
+        reversed_str = c + reversed_str;
+    }
+    std::cout << reversed_str << '\n';
+    return 0;
+}

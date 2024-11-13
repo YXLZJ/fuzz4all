@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::string input_str;
+    std::cout << "Enter a string: ";
+    getline(std::cin, input_str);
+
+    // Use new C++ features to process the string in complex ways.
+    auto unique_chars = [&input_str]() -> std::vector<char> {
+        std::string sorted_str = input_str;
+        std::sort(sorted_str.begin(), sorted_str.end());
+        std::unique(sorted_str.begin(), sorted_str.end());
+        return std::vector<char>(sorted_str.begin(), sorted_str.end());
+    }();
+
+    // Print the unique characters in alphabetical order.
+    for (const auto& ch : unique_chars) {
+        std::cout << ch;
+    }
+
+    return 0;
+}

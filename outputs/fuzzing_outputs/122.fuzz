@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<char> chars = {'a', 'b', 'c'};
+    
+    auto transform_and_sort = [](auto& vec) {
+        for (auto& ch : vec) {
+            ch += 1;
+        }
+        sort(vec.begin(), vec.end());
+    };
+    
+    transform_and_sort(chars);
+    
+    cout << "Sorted and transformed vector: ";
+    for (const auto& ch : chars) {
+        cout << ch << ' ';
+    }
+    cout << endl;
+    
+    return 0;
+}

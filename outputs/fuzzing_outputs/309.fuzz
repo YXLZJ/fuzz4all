@@ -1,0 +1,17 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<std::string> words = {"Hello", "World"};
+    int count = 0;
+    
+    for (auto& word : words) {
+        if (word == "Hello") ++count;
+    }
+    
+    std::cout << "Count of 'Hello': " << count << std::endl;
+    
+    return 0;
+}

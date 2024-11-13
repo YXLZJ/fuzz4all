@@ -1,0 +1,14 @@
+#include <iostream>
+#include <iostringstream>
+#include <string>
+
+int main() {
+    std::istringstream iss("Hello r");
+    std::string str;
+    
+    while (iss >> str) {
+        std::cout << str << " ";
+    }
+    
+    return 0;
+}

@@ -1,0 +1,18 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    // Using new C++ features in a complex way
+    auto lambda = [](auto& value) { return std::toupper(value); };
+    
+    std::vector<std::string> words{"hello", "world"};
+    std::transform(words.begin(), words.end(), words.begin(), lambda);
+    
+    for (const auto& word : words) {
+        std::cout << word << ' ';
+    }
+    
+    return 0;
+}

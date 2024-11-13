@@ -1,0 +1,17 @@
+#include <iostream>
+#include <array>
+#include <string>
+#include <algorithm>
+
+int main() {
+    std::array<std::string, 3> names = {"Alice", "Bob", "Charlie"};
+    auto sorted_names = [&names](){
+        return std::sort(names.begin(), names.end());
+    }();
+    
+    for (const auto &name : sorted_names) {
+        std::cout << name << '\n';
+    }
+
+    return 0;
+}

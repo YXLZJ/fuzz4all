@@ -1,0 +1,21 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <utility> // for std::pair
+
+int main() {
+    std::vector<std::pair<int, std::string>> data = {{1, "banana"}, {2, "apple"}};
+    
+    if (data.empty()) {
+        std::cout << "Index: <0> Data: <none>" << std::endl;
+    } else {
+        for (const auto& pair : data) {
+            int index = pair.first;
+            std::string word = pair.second;
+            
+            std::cout << "Index: " << index << " Word: " << word << std::endl;
+        }
+    }
+    
+    return 0;
+}

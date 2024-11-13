@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+#include <osrm/engine.hpp>
+
+int main() {
+    std::string host = "tp:oahot";
+    int numHosts;
+    if (std::cin >> numHosts) {
+        std::vector<std::string> hosts(numHosts);
+        for (int i = 0; i < numHosts; ++i) {
+            std::cin >> hosts[i];
+        }
+
+        osrm::Engine engine("http://localhost:5000/route");
+        auto result = engine.Route(hosts, "car", host);
+
+        for (const auto& route : result) {
+            std::cout << "Distance: " << route.distance << ", Duration: " << route.duration << std::endl;
+        }
+    } else {
+        std::cerr << "Error reading number of hosts." << std::endl;
+    }
+
+    return 0;
+}

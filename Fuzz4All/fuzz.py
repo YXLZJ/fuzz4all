@@ -62,15 +62,14 @@ def fuzz(
             p.console.print(log)
 
         p.update(task, advance=count)
-
+        pos = count
+        fos = []
         while (
             count < number_of_iterations
             and time.time() - start_time < total_time * 3600
         ):
-            fos = target.generate()
-            if not fos:
-                target.initialize()
-                continue
+            if count == pos:
+                fos = target.generate()
             prev = []
             for index, fo in enumerate(fos):
                 file_name = os.path.join(output_folder, f"{count}.fuzz")
@@ -82,7 +81,7 @@ def fuzz(
                     f_result, message = target.validate_individual(file_name)
                     target.parse_validation_message(f_result, message, file_name)
                     prev.append((f_result, fo))
-            target.update(prev=prev)
+            fos = target.update(prev=prev)
 
 
 # evaluate against the oracle to discover any potential bugs
@@ -127,7 +126,7 @@ def cli(ctx, config_file):
     "batch_size",
     "--batch_size",
     type=int,
-    default=30,
+    default=5,
     help="batch size for the model",
 )
 @click.option(

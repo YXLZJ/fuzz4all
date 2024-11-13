@@ -1,0 +1,16 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    string input = "Please create a very short program which uses new C++ features in a complex way";
+    
+    vector<string> words(input.begin(), input.end());
+    for (const auto& word : words) {
+        cout << word << endl;
+    }
+
+    return 0;
+}

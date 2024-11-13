@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::string input = "apple, banana, cherry";
+    std::vector<std::string> fruits;
+    
+    // Split the string into a vector of strings using comma as delimiter.
+    size_t pos = 0;
+    while ((pos = input.find(",")) != std::string::npos) {
+        fruits.push_back(input.substr(0, pos));
+        input.erase(0, pos + 1);
+    }
+    
+    // Sort the vector in reverse order using a lambda function as comparator.
+    std::sort(fruits.begin(), fruits.end(), [](const std::string& a, const std::string& b) { return a > b; });
+    
+    // Print each element of the sorted vector on a new line.
+    for (const auto& fruit : fruits) {
+        std::cout << fruit << '\n';
+    }
+    
+    return 0;
+}

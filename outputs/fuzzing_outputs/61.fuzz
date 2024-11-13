@@ -1,0 +1,14 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::string words[] = {"e", "na", "y"};
+    std::sort(words, words + sizeof(words) / sizeof(words[0]));
+    
+    for (const auto& word : words) {
+        std::cout << word;
+    }
+    
+    return 0;
+}

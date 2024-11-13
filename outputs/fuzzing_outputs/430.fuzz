@@ -1,0 +1,16 @@
+#include <iostream>
+#include <string> // Corrected header for string operations
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    getline(std::cin, input);
+
+    if (input.find("a") != std::string::npos) {
+        std::cout << "The character 'a' is found in the input." << std::endl;
+    } else {
+        std::cout << "The character 'a' is not found in the input." << std::endl;
+    }
+
+    return 0;
+}

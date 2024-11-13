@@ -1,0 +1,16 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<std::pair<double, double>> data = {{1.0, 2.0}, {3.0, 4.0}};
+    
+    auto sort_by_second = [](const auto& lhs, const auto& rhs) { return lhs.second < rhs.second; };
+    std::sort(data.begin(), data.end(), sort_ by_second);
+    
+    for (const auto& pair : data) {
+        std::cout << "(" << pair.first << ", " << pair.second << ")" << std::endl;
+    }
+    
+    return 0;
+}

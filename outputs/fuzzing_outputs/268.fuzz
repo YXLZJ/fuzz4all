@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+int main() {
+    std::vector<std::string> words = {"apple", "banana", "cherry"};
+    
+    for (auto& word : words) {
+        auto uppercaseWord = [](const std::string &s){
+            std::string result;
+            for(char c: s) {
+                if(c >= 'a' && c <= 'z') {
+                    result += static_cast<char>(c - 32);
+                } else {
+                    result += c;
+                }
+            }
+            return result;
+        };
+        
+        std::cout << uppercaseWord(word) << " ";
+    }
+    
+    return 0;
+}

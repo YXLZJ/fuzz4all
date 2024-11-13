@@ -1,0 +1,19 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<double> data = {1.23456789, -2.3456789, 0.12345678};
+    
+    // Using C++17 structured binding to unpack the vector elements and their indices
+    for (auto [index, value] : std::views::iota(data.begin(), data.end()) | std::views::transform([](const auto& it) { return *it; })) {
+        // Using C++17 if constexpr to conditionally execute code based on the type of 'value'
+        if constexpr (std::is_floating_point<decltype(value)>::value) {
+            std::cout << "Index: " << index << ", Value: " << value << '\n';
+        } else {
+            std::cout << "Not a floating-point number\n";
+        }
+    }
+    
+    return 0;
+}

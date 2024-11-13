@@ -62,13 +62,31 @@ class Target(object):
         self.se_prompt = self.wrap_in_comment(
             "Please create a semantically equivalent program to the previous "
             "generation"
+            "Do not give other comments and explaination"
+            "Make sure the final code is clean, well-formatted, and ready to run."
         )
         self.m_prompt = self.wrap_in_comment(
             "Please create a mutated program that modifies the previous generation"
+            "Do not give other comments and explaination"
+            "Make sure the final code is clean, well-formatted, and ready to run."
         )
         self.c_prompt = self.wrap_in_comment(
             "Please combine the two previous programs into a single program"
+            "Do not give other comments and explaination"
+            "Make sure the final code is clean, well-formatted, and ready to run."
         )
+        self.mask_prompt = """
+            Please repair and complete the broken code above. Please follow these instructions carefully:
+	1.	Analyze the Code: Read through the entire code to understand its purpose and functionality.
+	2.	Identify Syntax Errors: Look for any syntax mistakes such as missing brackets, incorrect indentation, or misused language constructs.
+	3.	Find Logical Errors: Check for logical flaws that may prevent the code from executing correctly or producing the desired output.
+	4.	Complete Incomplete Sections: Fill in any missing parts of the code that are necessary for it to function properly.
+	5.	Correct and Complete the Code: Make all the necessary fixes and additions to ensure the code is fully functional.
+	6.	Provide Only the Final Code: Output only the repaired and completed code without any explanations, comments, or additional text.
+    8.  Clean comments and explaination
+    7.  Do not give other comments and explaination
+Make sure the final code is clean, well-formatted, and ready to run."""
+
         self.p_strategy = kwargs["prompt_strategy"]
         # eos based
         self.special_eos = None
@@ -247,7 +265,7 @@ class Target(object):
         self.model = make_model(
             eos=eos,
             model_name=model_name,
-            device=self.device,
+            # device=self.device,
             max_length=self.max_length,
         )
         self.m_logger.logo("Model Loaded", level=LEVEL.INFO)
@@ -257,28 +275,21 @@ class Target(object):
             hw=self.hw,
             no_input_prompt=self.no_input_prompt,
         )
-        self.prompt = self.initial_prompt
+        self.prompt = self.initial_prompt+ "\n" + "Provide Only the Final Code: Output only the repaired and completed code without any explanations, comments, markdown or additional text.\nMake sure the final code is very short, clean, well-formatted, and ready to run.\n"
         self.m_logger.logo("Done", level=LEVEL.INFO)
 
-    def generate_model(self) -> List[str]:
+    def  generate_model(self) -> List[str]:
         self.g_logger.logo(self.prompt, level=LEVEL.VERBOSE)
         return self.model.generate(
             self.prompt,
             batch_size=self.batch_size,
             temperature=self.temperature,
-            max_length=1024,
+            max_length=150,
         )
 
     # generation
-    def generate(self, **kwargs) -> Union[List[str], bool]:
-        try:
-            fos = self.generate_model()
-        except RuntimeError:
-            # catch cuda out of memory error.
-            self.m_logger.logo("cuda out of memory...", level=LEVEL.INFO)
-            del self.model
-            torch.cuda.empty_cache()
-            return False
+    def  generate(self, **kwargs) -> Union[List[str], bool]:
+        fos = self.generate_model()
         new_fos = []
         for fo in fos:
             self.g_logger.logo("========== sample =========", level=LEVEL.VERBOSE)
@@ -302,41 +313,30 @@ class Target(object):
     def clean_code(self, code: str) -> str:
         raise NotImplementedError
 
-    def update_strategy(self, new_code: str) -> str:
-        while 1:
-            strategy = random.randint(0, self.p_strategy)
-            # generate new code using separator
-            if strategy == 0:
-                return f"\n{new_code}\n{self.prompt_used['separator']}\n"
-            # mutate existing code
-            elif strategy == 1:
-                return f"\n{new_code}\n{self.m_prompt}\n"
-            # semantically equivalent code generation
-            elif strategy == 2:
-                return f"\n{new_code}\n{self.se_prompt}\n"
-            # combine previous two code generations
-            else:
-                if self.prev_example is not None:
-                    return f"\n{self.prev_example}\n{self.prompt_used['separator']}\n{self.prompt_used['begin']}\n{new_code}\n{self.c_prompt}\n"
-
+    def mask(self,text,mask_ratio=0.3):
+        num_to_remove = int(len(text) * mask_ratio)
+        char_list = list(text)
+        indices_to_remove = random.sample(range(int(len(text))), num_to_remove)
+        for index in sorted(indices_to_remove, reverse=True):
+            del char_list[index]
+        return ''.join(char_list)
+    
+    def caculate_ration(self,n):
+        fraction = 0.75 - (n / self.batch_size) * (0.75 - 0.25)
+        return fraction
+        
     # update
     def update(self, **kwargs):
         new_code = ""
+        abnormal_count = 0
         for result, code in kwargs["prev"]:
-            if (
-                result == FResult.SAFE
-                and self.filter(code)
-                and self.clean_code(code) != self.prev_example
-            ):
-                new_code = self.clean_code(code)
-        if new_code != "" and self.p_strategy != -1:
-            self.prompt = (
-                self.initial_prompt
-                + self.update_strategy(new_code)
-                + self.prompt_used["begin"]
-                + "\n"
-            )
-            self.prev_example = new_code
+            if result in [FResult.ERROR, FResult.FAILURE, FResult.TIMED_OUT]:
+                abnormal_count += 1
+                new_code = code
+        if abnormal_count == 0:
+            new_code = random.choice([code for _, code in kwargs["prev"]])
+        fos = self.model.update(self.mask(new_code,self.caculate_ration(abnormal_count)),self.initial_prompt,batch_size=self.batch_size)
+        return fos
 
     # validation
     def validate_individual(self, filename) -> (FResult, str):

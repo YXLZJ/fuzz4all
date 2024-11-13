@@ -1,0 +1,17 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    string input_string = "Hello";
+    vector<char> v(input_string.begin(), input_string.end());
+    
+    sort(v.begin(), v.end());
+    
+    for (auto it = v.begin(); it != v.end(); ++it) {
+        cout << *it;
+    }
+    
+    return 0;
+}

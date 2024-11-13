@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string_view>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<std::string> words = {"hello", "world", "complexity"};
+    
+    auto printWords = [](const std::vector<std::string>& v) {
+        for (auto& word : v) {
+            std::cout << word << ' ';
+        }
+        std::cout << '\n';
+    };
+
+    // Using a lambda function to sort the vector in reverse order using C++14's auto keyword and generic lambdas.
+    auto sortedWords = [](auto& v) {
+        std::sort(v.begin(), v.end(), std::greater<>());
+        return v;
+    };
+    
+    printWords(words);
+    words = sortedWords(words);
+    printWords(words);
+
+    // Using C++17's structured binding to unpack the vector and display each word.
+    for (const auto& [index, word] : std::views::iota(std::size_t{0}, words.size()) | std::views::transform([](auto i){ return std::pair<decltype(i), decltype(words[i])>(i, words[i]); })) {
+        std::cout << index << ": " << word << '\n';
+    }
+    
+    return 0;
+}

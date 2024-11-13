@@ -1,0 +1,10 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    auto aux = [] (auto x, auto y) -> decltype(x + y) { return x + y; };
+    int result = [](int a, int b){return a * b;}("lel", 10);
+    
+    cout << "Result: " << result << endl;
+    return 0;
+}

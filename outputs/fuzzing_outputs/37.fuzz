@@ -1,0 +1,16 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string input = "iceiteailr";
+    int v = 0, atm = 0;
+    
+    for (char c : input) {
+        if (c == 'i') ++v;
+        else if (c == 'a') ++atm;
+    }
+    
+    cout << "Vowels: " << v << endl;
+    cout << "Consonants: " << atm << endl;
+}

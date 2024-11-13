@@ -1,0 +1,17 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<std::string> dates = {"2023-01-01", "2023-01-05", "2023-01-10"};
+    auto sortDates = [](const std::string& a, const std::string& b) { return a < b; };
+    
+    std::sort(dates.begin(), dates.end(), sortDates);
+    
+    for (const auto& date : dates) {
+        std::cout << date << '\n';
+    }
+    
+    return 0;
+}

@@ -1,0 +1,18 @@
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string input = "Hello, World!";
+    auto result = [](const char* str) -> void {
+        for (size_t i = 0; str[i]; ++i) {
+            if (str[i] == ' ') {
+                std::cout << "_" << std::endl;
+            } else {
+                std::cout << static_cast<char>(std::tolower(static_cast<unsigned char>(str[i])));
+            }
+        }
+    };
+    
+    result(&input[0]);
+    return 0;
+}

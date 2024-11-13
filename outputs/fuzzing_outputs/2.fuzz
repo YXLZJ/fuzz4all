@@ -1,0 +1,13 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+  vector<int> nums = {125, -3, 8, 4};
+
+  auto isPositive = [](const int& n) { return n > 0; };
+  
+  for(auto &n : nums) if(!isPositive(n)) cout << n << " ";
+  
+  return 0;}

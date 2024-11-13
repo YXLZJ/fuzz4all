@@ -1,0 +1,8 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    auto [x, y] = make_tuple(10, 20);
+    cout << "The values are: x=" << get<0>(tie(x,y)) << ", y=" << get<1>(tie(x,y)) << endl;
+    return 0;
+}

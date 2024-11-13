@@ -1,0 +1,15 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<double> numbers{3.14, -2.78, 0.0};
+    sort(numbers.begin(), numbers.end());
+    
+    for (const auto& num : numbers) {
+        cout << num << " ";
+    }
+    
+    return 0;
+}

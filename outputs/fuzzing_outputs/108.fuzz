@@ -1,0 +1,17 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<string> v = {"apple", "banana", "cherry"};
+    
+    auto it = find_if(v.begin(), v.end(), [](const string& s) { return !s.empty(); });
+    if (it != v.end()) {
+        cout << *it << endl;
+    } else {
+        cout << "No non-empty strings found." << endl;
+    }
+    
+    return 0;
+}

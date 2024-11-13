@@ -1,0 +1,17 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<int> vec = {1, 4};
+    sort(vec.begin(), vec.end());
+    
+    cout << "Eents s han : ";
+    for (auto it = vec.begin(); it != vec.end(); ++it) {
+        cout << *it;
+    }
+    cout << endl;
+    
+    return 0;
+}

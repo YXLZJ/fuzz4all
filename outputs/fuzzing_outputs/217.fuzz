@@ -1,0 +1,11 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+int main() {
+    std::vector<std::string> v{ "p", "er" };
+    for (const auto& str : v) {
+        std::cout << str;
+    }
+    return 0;
+}

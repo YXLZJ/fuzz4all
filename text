@@ -1,0 +1,1 @@
+python Fuzz4All/fuzz.py --config ./config/full_run/c_std.yaml main_with_config --folder outputs/fuzzing_outputs --target clang

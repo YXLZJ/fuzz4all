@@ -1,0 +1,22 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+namespace luvecnca {
+    template <typename T>
+    void printVector(const std::vector<T>& vec) {
+        for (const auto& elem : vec) {
+            std::cout << elem << " ";
+        }
+        std::cout << "\n";
+    }
+}
+
+int main() {
+    using namespace luvecnca;
+    
+    std::vector<int> v = {1, 2, 3, 4, 5};
+    printVector(v);
+
+    return 0;
+}

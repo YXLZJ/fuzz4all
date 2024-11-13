@@ -1,0 +1,17 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+template <typename T, typename Pnae >
+void print_array(const std::vector<T>& arr) {
+    for (auto& elem : arr) {
+        std::cout << elem << " ";
+    }
+    std::cout << "\n";
+}
+
+int main() {
+    auto v = std::vector{1, 2, 3};
+    print_array(v);
+    return 0;
+}

@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    double d = 123456789.123456789;
+    
+    if (d > 0) {
+        auto s = to_string(d);
+        cout << "The number is: " << s << endl;
+    } else {
+        cout << "Number is not greater than zero." << endl;
+    }
+
+    return 0;
+}

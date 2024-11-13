@@ -1,151 +1,71 @@
 import os
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import List
 
-import torch
-from transformers import (
-    AutoModelForCausalLM,
-    AutoTokenizer,
-    StoppingCriteria,
-    StoppingCriteriaList,
-)
+from langchain_community.llms import Ollama
 
-os.environ["TOKENIZERS_PARALLELISM"] = "false"  # disable warning
-EOF_STRINGS = ["<|endoftext|>", "###"]
+os.environ["TOKENIZERS_PARALLELISM"] = "false"  # Disable warning
 
 
-class EndOfFunctionCriteria(StoppingCriteria):
-    def __init__(self, start_length, eos, tokenizer, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.start_length = start_length
+
+class EndOfFunctionCriteria:
+    def __init__(self, eos):
         self.eos = eos
-        self.tokenizer = tokenizer
-        self.end_length = {}
 
-    def __call__(self, input_ids, scores, **kwargs):
-        """Returns true if all generated sequences contain any of the end-of-function strings."""
-        decoded_generations = self.tokenizer.batch_decode(
-            input_ids[:, self.start_length :]
-        )
-        done = []
-        for index, decoded_generation in enumerate(decoded_generations):
-            finished = any(
-                [stop_string in decoded_generation for stop_string in self.eos]
-            )
-            if (
-                finished and index not in self.end_length
-            ):  # ensures first time we see it
-                for stop_string in self.eos:
-                    if stop_string in decoded_generation:
-                        self.end_length[index] = len(
-                            input_ids[
-                                index,  # get length of actual generation
-                                self.start_length : -len(
-                                    self.tokenizer.encode(
-                                        stop_string,
-                                        add_special_tokens=False,
-                                        return_tensors="pt",
-                                    )[0]
-                                ),
-                            ]
-                        )
-            done.append(finished)
-        return all(done)
+    def check_end_of_function(self, generation: str) -> bool:
+        """Returns true if the generated sequence contains any of the end-of-function strings."""
+        return any(stop_string in generation for stop_string in self.eos)
 
 
-class StarCoder:
-    def __init__(
-        self, model_name: str, device: str, eos: List, max_length: int
-    ) -> None:
-        checkpoint = model_name
-        self.device = device
-        self.tokenizer = AutoTokenizer.from_pretrained(
-            checkpoint,
-        )
-        self.model = (
-            AutoModelForCausalLM.from_pretrained(
-                checkpoint,
-            )
-            .to(torch.bfloat16)
-            .to(device)
-        )
-        self.eos = EOF_STRINGS + eos
-        self.max_length = max_length
-        self.prefix_token = "<fim_prefix>"
-        self.suffix_token = "<fim_suffix><fim_middle>"
-        self.skip_special_tokens = False
+class Model:
+    def __init__(self, model_name: str, eos: List[str], max_length: int) -> None:
+        self.model_generator = Ollama(model=model_name,temperature=0, num_predict=max_length)
 
-    @torch.inference_mode()
-    def generate(
-        self, prompt, batch_size=10, temperature=1.0, max_length=512
-    ) -> List[str]:
-        input_str = self.prefix_token + prompt + self.suffix_token
-        input_tokens = self.tokenizer.encode(input_str, return_tensors="pt").to(
-            self.device
-        )
+    def generate(self, prompt: str, temperature=0, max_length=250, batch_size=5) -> List[str]:
+        if max_length is None:
+            max_length = self.max_length
+        responses = []
+        for i in range(batch_size):
+            messages = [{"role": "user", "content": prompt}]
+            content = self.model_generator.invoke(messages)
+            responses.append(content)
+        return responses
 
-        scores = StoppingCriteriaList(
-            [
-                EndOfFunctionCriteria(
-                    start_length=len(input_tokens[0]),
-                    eos=self.eos,
-                    tokenizer=self.tokenizer,
-                )
+    def update(self,code,init_program,batch_size=5):
+        responses = []
+        for i in range(batch_size):
+            messages = [
+                {
+                    "role": "system",
+                    "content": (
+                        """Your task is to repair and complete the broken code provided to you. Please follow these instructions carefully:
+1.	Analyze the Code: Read through the entire code to understand its purpose and functionality.
+2.	Identify Syntax Errors: Look for any syntax mistakes such as missing brackets, incorrect indentation, or misused language constructs.
+3.	Find Logical Errors: Check for logical flaws that may prevent the code from executing correctly or producing the desired output.
+4.	Complete Incomplete Sections: Fill in any missing parts of the code that are necessary for it to function properly.
+5.	Correct and Complete the Code: Make all the necessary fixes and additions to ensure the code is fully functional.
+6.	Provide Only the Final Code: Output only the repaired and completed code without any explanations, comments, or additional text.
+7.  Do not give other comments and explaination
+8.  Must keep specifications that user brings to you
+9.  Remove any comments, markdown tags, etc., from the code, if there are any.
+Make sure the final code is clean, well-formatted, and ready to run.
+"""
+                    )
+                },
+                {"role": "user", "content": "specifications as follows:\n"+init_program},
+                {"role": "user", "content": code}
             ]
-        )
+        content = self.model_generator.invoke(messages)
+        responses.append(content)
+        return responses
 
-        raw_outputs = self.model.generate(
-            input_tokens,
-            max_length=min(self.max_length, len(input_tokens[0]) + max_length),
-            do_sample=True,
-            top_p=1.0,
-            temperature=max(temperature, 1e-2),
-            num_return_sequences=batch_size,
-            stopping_criteria=scores,
-            output_scores=True,
-            return_dict_in_generate=True,
-            repetition_penalty=1.0,
-            pad_token_id=self.tokenizer.eos_token_id,
-        )
-        gen_seqs = raw_outputs.sequences[:, len(input_tokens[0]) :]
-        gen_strs = self.tokenizer.batch_decode(
-            gen_seqs, skip_special_tokens=self.skip_special_tokens
-        )
-        outputs = []
-        # removes eos tokens.
-        for output in gen_strs:
-            min_index = 10000
-            for eos in self.eos:
-                if eos in output:
-                    min_index = min(min_index, output.index(eos))
-            outputs.append(output[:min_index])
-        return outputs
-
-
-def make_model(eos: List, model_name: str, device: str, max_length: int):
-    """Returns a llm model instance (optional: using the configuration file)."""
-
-    kwargs_for_model = {
-        "model_name": model_name,
-        "eos": eos,
-        "device": device,
-        "max_length": max_length,
-    }
-
-    # print the model config
+def make_model(eos: List[str], model_name: str, max_length: int) -> Model:
+    """Returns a StarCoder model instance using the Ollama client."""
     print("=== Model Config ===")
     print(f"model_name: {model_name}")
-    for k, v in kwargs_for_model.items():
-        print(f"{k}: {v}")
-
-    if "starcoder" in model_name.lower():
-        model_obj = StarCoder(**kwargs_for_model)
-    else:
-        # default
-        model_obj = StarCoder(**kwargs_for_model)
-
-    model_obj_class_name = model_obj.__class__.__name__
-
-    print(f"model_obj (class name): {model_obj_class_name}")
+    print(f"max_length: {max_length}")
+    for stop in eos:
+        print(f"eos: {stop}")
     print("====================")
 
+    model_obj = Model(model_name=model_name, eos=eos, max_length=max_length)
     return model_obj

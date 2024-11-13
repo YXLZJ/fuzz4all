@@ -1,0 +1,10 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<double> numbers = {1.2, 3.4, 5.6};
+    double sum = accumulate(numbers.begin(), numbers.end(), 0);
+    cout << "Sum of the elements: " << sum << endl;
+    return 0;
+}

@@ -1,0 +1,24 @@
+#include <iostream>
+#include <string>
+#include <map>
+
+class MyClass {
+public:
+    std::map<std::string, int> myMap;
+    
+    void add(const std::string& key, int value) {
+        myMap[key] = value;
+    }
+};
+
+int main() {
+    MyClass obj;
+    obj.add("bn", 1);
+    obj.add("hr", 2);
+    
+    for (const auto& pair : obj.myMap) {
+        std::cout << "Key: " << pair.first << ", Value: " << pair.second << std::endl;
+    }
+    
+    return 0;
+}

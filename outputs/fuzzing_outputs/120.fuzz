@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <functional>
+
+int main() {
+    std::vector<std::pair<char, int>> data = {{'a', 1}, {'b', 2}, {'c', 3}};
+    
+    auto sum_of_second_elements = [](const std::vector<std::pair<char, int>>& v) {
+        return std::accumulate(v.begin(), v.end(), 0,
+                               [](int acc, const std::pair<char, int>& p) {
+                                   return acc + p.second;
+                               });
+    };
+    
+    auto max_element = [](const std::vector<std::pair<char, int>>& v) {
+        return *max_element(v.begin(), v.end(),
+                            [](const std::pair<char, int>& a, const std::pair<char, int>& b) {
+                                return a.second < b.second;
+                            });
+    };
+    
+    auto min_element = [](const std::vector<std::pair<char, int>>& v) {
+        return *min_element(v.begin(), v.end(),
+                            [](const std::pair<char, int>& a, const std::pair<char, int>& b) {
+                                return a.second < b.second;
+                            });
+    };
+    
+    auto print = [&data]() {
+        for (const auto& p : data) {
+            std::cout << p.first << ": " << p.second << '\n';
+        }
+    };
+    
+    std::cout << "Sum of second elements: " << sum_of_second_elements(data) << '\n';
+    print();
+    std::cout << "Max element by second value: " << max_element(data).first << ": " << max_element(data).second << '\n';
+    std::cout << "Min element by second value: " << min_element(data).first << ": " << min_element(data).second << '\n';
+    
+    return 0;
+}

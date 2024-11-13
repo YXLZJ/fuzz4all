@@ -1,0 +1,20 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<string> words = {"hello", "world"};
+    
+    // Use new C++ features to reverse the strings in the vector and print them.
+    for (auto& word : words) {
+        reverse(word.begin(), word.end());
+    }
+    
+    for (const auto& word : words) {
+        cout << word << endl;
+    }
+    
+    return 0;
+}

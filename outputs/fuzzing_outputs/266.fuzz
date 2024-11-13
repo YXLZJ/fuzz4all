@@ -1,0 +1,17 @@
+#include <iostream>
+#include <random>
+using namespace std;
+
+int main() {
+    // Create a random device and mersenne twister engine
+    random_device rd;
+    mt19937 gen(rd());
+    
+    // Define distribution for uniform integer generation between 0-99
+    uniform_int_distribution<> dis(0, 99);
+
+    // Generate and print a random number using the new C++ features in a complex way
+    cout << "Random Number: " << dis(gen) << endl;
+    
+    return 0;
+}

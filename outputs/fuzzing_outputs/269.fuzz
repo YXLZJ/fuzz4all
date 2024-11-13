@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    auto sum = [](auto&&... args) -> decltype(args.first * args.second) {
+        return (... + args.first * args.second);
+    };
+    
+    cout << "Enter two numbers: ";
+    int a, b;
+    cin >> a >> b;
+    
+    auto result = sum({{a, 1}, {b, -2}});
+    cout << "Result: " << result << endl;
+    
+    return 0;
+}

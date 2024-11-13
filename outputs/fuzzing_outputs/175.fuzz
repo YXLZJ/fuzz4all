@@ -1,0 +1,15 @@
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string input_str;
+    std::cout << "Enter a string: ";
+    getline(std::cin, input_str);
+    
+    // Using C++17 structured binding to unpack the result of std::make_tuple
+    auto [first, second] = std::make_tuple(input_str[0], input_str.substr(1));
+    
+    std::cout << "First character: " << first << ", Second substring: " << second << '\n';
+    
+    return 0;
+}

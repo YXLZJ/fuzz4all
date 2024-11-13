@@ -1,0 +1,18 @@
+#include <iostream>
+#include <string>
+int main() {
+    std::string input = "";
+    int sub_r = 0;
+    char t[128];
+    
+    while (std::cin >> t) {
+        if (t == '') {
+            break;
+        } else {
+            sub_r += t - 'a';
+        }
+    }
+    
+    std::cout << "Result: " << sub_r << std::endl;
+    return 0;
+}

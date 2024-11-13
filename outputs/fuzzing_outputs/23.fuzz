@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<int> v = {1, 2, 3, 4, 5};
+    
+    // Using C++17 structured binding to unpack the result of partition algorithm
+    auto [smaller_begin, smaller_end] = partition(v.begin(), v.end(), [](int x){ return x < 3; });
+    
+    // Printing elements less than 3 using a range-based for loop (C++17 feature)
+    cout << "Elements less than 3:" << endl;
+    for (auto& elem : vector(smaller_begin, smaller_end)) {
+        cout << elem << ' ';
+    }
+    
+    // Printing elements greater or equal to 3 using a range-based for loop (C++17 feature)
+    cout << "\nElements greater than or equal to 3:" << endl;
+    for (auto& elem : vector(smaller_end, v.end())) {
+        cout << elem << ' ';
+    }
+    
+    return 0;
+}

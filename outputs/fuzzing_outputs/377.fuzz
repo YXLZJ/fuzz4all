@@ -1,0 +1,19 @@
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string input = "Please create a very short program which uses new C++ features in a complex way";
+    
+    auto words_begin = input.begin();
+    while (words_begin != input.end()) {
+        auto word_end = std::find(words_begin, input.end(), ' ') - 1;
+        
+        if (word_end == input.end() - 1) break; // Last word in the string
+        
+        std::cout << "Word: " << &*word_end << '\n';
+        
+        words_begin = word_end + 2; // Skip space and next character (which is part of the same word)
+    }
+    
+    return 0;
+}

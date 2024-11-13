@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::string input = "pl bn dsngs; St ritcorstngs aeltr.ze_s= 0 ( pf" st::{ f(i0   pu0 po ";
+    auto words = splitString(input);
+    
+    for (const auto& word : words) {
+        std::cout << word << " ";
+    }
+
+    return 0;
+}
+
+std::vector<std::string> splitString(const std::string &str, char delim = ' ') {
+    std::vector<std::string> tokens;
+    size_t startPos = str.find_first_not_of(delim);
+    size_t endPos = str.find_first_of(delim);
+    
+    while (startPos != std::string::npos) {
+        if (endPos == std::string::npos || startPos < endPos) {
+            tokens.push_back(str.substr(startPos, endPos - startPos));
+        }
+        
+        startPos = str.find_first_not_of(delim, endPos);
+        endPos = str.find_first_of(delim, startPos);
+    }
+    
+    return tokens;
+}

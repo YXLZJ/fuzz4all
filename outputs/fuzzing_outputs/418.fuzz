@@ -1,0 +1,8 @@
+#include <iostream>
+using namespace std;
+
+auto main() -> int {
+    auto [a, b] = to_array<int>(20);
+    cout << "Sum: " << a + b << endl;
+    return 0;
+}

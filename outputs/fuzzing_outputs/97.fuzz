@@ -1,0 +1,22 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+template<typename T>
+void printVectorElements(const std::vector<T>& vec) {
+    for (auto& elem : vec) {
+        std::cout << elem << " ";
+    }
+    std::cout << "\n";
+}
+
+int main() {
+    std::vector<int> v = {1, 2, 3, 4, 5};
+    printVectorElements(v);
+    
+    auto result = [](const auto& elem) { return elem * 2; };
+    std::transform(v.begin(), v.end(), v.begin(), result);
+    printVectorElements(v);
+
+    return 0;
+}

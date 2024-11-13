@@ -1,0 +1,17 @@
+#include <iostream>
+#include <iterator>
+#include <vector>
+#include <algorithm>
+#include <string>
+
+int main() {
+    std::vector<std::string> words = {"e", "banana", "chry"};
+    
+    for (auto it = words.begin(); it != words.end(); ++it) {
+        if (*it == "anana") {
+            *it += "s";
+        }
+    }
+    
+    std::cout << std::string(words.begin(), words.end()) << std::endl;
+}

@@ -1,0 +1,13 @@
+#include <iostream>
+#include <string_view>
+
+int main() {
+    std::string str = "Hello, World!";
+    std::string_view sv(str);
+    for (std::size_t i = 0; i < sv.size(); ++i) {
+        if (sv[i] == 'o') {
+            std::cout << "Found o at position: " << i << '\n';
+        }
+    }
+    return 0;
+}

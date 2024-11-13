@@ -1,0 +1,15 @@
+#include <iostream>
+#include <algorithm> // for std::min function
+#include <vector>    // for std::vector container
+
+int main() {
+    std::vector<double> data = {5.2, -3.4, 10.7, -6.9};
+    
+    double min_value = *std::min_element(data.begin(), data.end());
+    double max_value = *std::max_element(data.begin(), data.end());
+    
+    std::cout << "Minimum value: " << min_value << '\n';
+    std::cout << "Maximum value: " << max_value << '\n';
+    
+    return 0;
+}

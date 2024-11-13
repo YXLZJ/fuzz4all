@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+template<typename T, typename U>
+void printPair(T t, U u) {
+    cout << "(" << t << ", " << u << ")" << endl;
+}
+
+int main() {
+    int a = 5;
+    double b = 3.14;
+    
+    printPair(a, b);
+    
+    return 0;
+}

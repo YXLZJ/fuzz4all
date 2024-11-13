@@ -1,0 +1,14 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main() {
+    vector<pair<string, int>> vpir = {{ "Sr", 10 }, {"atle", 2}, {"cal", 3}};
+    
+    for (const auto& p : vpir) {
+        cout << p.first << ": " << p.second << endl;
+    }
+
+    return 0;
+}

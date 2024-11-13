@@ -1,0 +1,15 @@
+#include <iostream>
+#include <vector>
+#include <string_view>
+#include <algorithm>
+
+int main() {
+    std::vector<std::string_view> words = {"Hello", "World"};
+    
+    // Use range-based for loop with structured binding to iterate over vector elements.
+    for (const auto& [word, index] : enumerate(words)) {
+        std::cout << word << ": " << index << '\n';
+    }
+
+    return 0;
+}

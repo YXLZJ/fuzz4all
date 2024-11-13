@@ -1,0 +1,25 @@
+#include <iostream>
+#include <algorithm> // Corrected include directive
+#include <vector>
+#include <random>
+using namespace std;
+
+void sortArray(vector<int>& data) {
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> dis(0, 15); // Assuming the range is from 0 to 15 for demonstration purposes. Adjust as needed.
+    
+    sort(data.begin(), data.end(), [&](const int a, const int b) { return a < b; });
+}
+
+int main() {
+    vector<int> data = {2, 4, 1, 3}; // Example array to be sorted
+    
+    sortArray(data);
+    
+    for (auto& d : data) {
+        cout << d << " ";
+    }
+    
+    return 0;
+}

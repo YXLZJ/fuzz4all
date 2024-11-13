@@ -1,0 +1,16 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    string str = "Hello, World!";
+    vector<char> v(str.begin(), str.end());
+    
+    sort(v.begin(), v.end());
+    for (const auto& c : v) {
+        cout << c;
+    }
+    return 0;
+}

@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    getline(std::cin, input);
+
+    // Using new C++ features to manipulate the string in complex ways.
+    auto v = std::vector<char>(input.begin(), input.end());
+    std::sort(v.begin(), v.end());
+    std::string sorted_str(v.begin(), v.end());
+
+    // Using lambda function to find the first non-repeating character in the string.
+    auto it = std::find_if(input.begin(), input.end(), [&sorted_str](char c) {
+        return sorted_str.find(c, 0) == std::string::npos;
+    });
+
+    if (it != input.end()) {
+        std::cout << "First non-repeating character: " << *it << std::endl;
+    } else {
+        std::cout << "No unique characters found." << std::endl;
+    }
+
+    return 0;
+}

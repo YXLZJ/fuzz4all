@@ -1,0 +1,12 @@
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string input = "Hello World!";
+    auto reverse_input = [&](std::string s) { return std::string(s.rbegin(), s.rend()); };
+    
+    std::cout << "Original: " << input << '\n';
+    std::cout << "Reversed: " << reverse_input(input) << '\n';
+
+    return 0;
+}

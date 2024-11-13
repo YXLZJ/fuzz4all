@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    auto lambda = [](auto x, auto y) { return x + y; };
+    cout << "Lambda function result: " << lambda(5, 10) << endl;
+    
+    auto complex_lambda = []<typename T>(T& t) mutable -> decltype(t.a * t.b) {
+        t.c += 2;
+        return t.a * t.b;
+    };
+    
+    struct TestStruct {
+        int a, b, c;
+    } test{10, 5, 3};
+    
+    cout << "Complex lambda function result: " << complex_lambda(test) << endl;
+    
+    return 0;
+}

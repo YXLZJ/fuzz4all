@@ -1,0 +1,20 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+#include <utility>
+using namespace std;
+
+int main() {
+    vector<pair<char, int>> v = {{'a', 1}, {'b', 2}, {'c', 3}};
+    
+    auto max_element = [](const pair<char, int>& p) { return p.second; };
+    auto transformer = [] (auto& elem) { return elem.first + elem.second; };
+    
+    vector<int> transformed(v.size());
+    transform(begin(v), end(v), begin(transformed), transformer);
+    
+    int max_value = *max_element(transformed.begin(), transformed.end());
+    
+    cout << "Max value: " << max_value << endl;
+}

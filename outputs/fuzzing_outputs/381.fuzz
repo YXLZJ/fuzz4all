@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string input = "Please ataey ho pgmwhh ew + eareincmla";
+    size_t pos1, pos2;
+    
+    // Split the string into two parts using a delimiter '+'
+    pos1 = input.find('+');
+    if (pos1 != string::npos) {
+        string part1 = input.substr(0, pos1);
+        string part2 = input.substr(pos1 + 1);
+        
+        // Reverse the first part of the string
+        reverse(part1.begin(), part1.end());
+        
+        // Concatenate the reversed first part with the second part
+        string result = part1 + "+" + part2;
+        
+        cout << result << endl;
+    } else {
+        cerr << "No delimiter found." << endl;
+    }
+    
+    return 0;
+}

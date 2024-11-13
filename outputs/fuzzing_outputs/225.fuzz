@@ -1,0 +1,19 @@
+#include <iostream>
+#include <string_view>
+#include <vector>
+#include <algorithm>
+
+template<typename T, typename Func>
+void forEach(std::vector<T>& vec, Func func) {
+    std::for_each(vec.begin(), vec.end(), func);
+}
+
+int main() {
+    std::string str = "Hello World!";
+    auto length = [&str](){ return static_cast<size_t>(str.length()); };
+    forEach(std::vector{str}, length);
+
+    std::cout << "Length of the string: " << length() << '\n';
+
+    return 0;
+}

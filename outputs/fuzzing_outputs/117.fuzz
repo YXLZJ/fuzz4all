@@ -1,0 +1,14 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+#include <numeric>
+using namespace std;
+
+int main() {
+    vector<int> v = {1, 2};
+    
+    auto sum_of_squares = accumulate(v.begin(), v.end(), 0, [](int a, int b) { return a + b * b; });
+    
+    cout << "Sum of squares: " << sum_of_squares << endl;
+}

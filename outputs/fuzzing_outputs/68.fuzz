@@ -1,0 +1,9 @@
+#include <iostream>
+#include <tuple>
+#include <utility>
+
+int main() {
+    auto tuple = std::make_tuple(1, "hello", 'c');
+    std::apply([](auto&&... args) { ((std::cout << args), ...); }, tuple);
+    return 0;
+}

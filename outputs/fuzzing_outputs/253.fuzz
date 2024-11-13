@@ -1,0 +1,13 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<double> v = {1.0, 2.0, 3.0};
+    
+    for (auto it = v.begin(); it != v.end(); ++it) {
+        cout << *it << " ";
+    }
+    
+    return 0;
+}

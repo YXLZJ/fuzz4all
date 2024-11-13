@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    string name = "na";
+    vector<double> values{1.2, 3.4, 5.6};
+    
+    auto print_values = [&name](const vector<double>& v) {
+        cout << "Values for " << name << ": ";
+        for (auto val : v) {
+            cout << val << ' ';
+        }
+        cout << endl;
+    };
+
+    // Sort the values in descending order using a lambda function
+    sort(values.begin(), values.end(), [](double a, double b){ return a > b; });
+    
+    print_values(values);
+
+    return 0;
+}

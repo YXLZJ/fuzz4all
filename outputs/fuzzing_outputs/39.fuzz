@@ -1,0 +1,19 @@
+#include <iostream>
+#include <string>
+#include <regex>
+
+int main() {
+    std::string input;
+    int count = 0;
+    
+    while (std::getline(std::cin, input)) {
+        if (input.empty()) break;
+        
+        std::smatch match;
+        if (std::regex_search(input, match, std::regex("\\d+"))) {
+            count += 1;
+        }
+    }
+    
+    return count;
+}

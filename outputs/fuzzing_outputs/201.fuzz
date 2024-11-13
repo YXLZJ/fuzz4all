@@ -1,0 +1,14 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<int> v = {1, 2, 3, 4, 5};
+    auto it = std::find_if(v.begin(), v.end(), [](int i) { return i % 2 == 0; });
+    
+    if (it != v.end()) {
+        std::cout << "Found even number: " << *it << '\n';
+    } else {
+        std::cout << "No even numbers found.\n";
+    }
+}

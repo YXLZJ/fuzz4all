@@ -1,0 +1,9 @@
+#include <iostream>
+#include <string_view>
+using namespace std;
+
+int main() {
+    string_view sv = "Hello World!";
+    cout << sv << '\n';
+    return 0;
+}

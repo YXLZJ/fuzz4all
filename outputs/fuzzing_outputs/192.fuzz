@@ -1,0 +1,10 @@
+#include <iostream>
+using namespace std;
+
+auto func = [](){ return !(int)a; };
+
+int main() {
+    int a = 5;
+    cout << "Result: " << func();
+    return 0;
+}

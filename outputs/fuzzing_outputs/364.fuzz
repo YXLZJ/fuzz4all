@@ -1,0 +1,21 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    string input = "12345";
+    vector<char> digits(input.begin(), input.end());
+    
+    sort(digits.rbegin(), digits.rend());
+    
+    int result = 0;
+    for (auto digit : digits) {
+        result = result * 10 + (digit - '0');
+    }
+    
+    cout << "The largest number is: " << result << endl;
+    
+    return 0;
+}

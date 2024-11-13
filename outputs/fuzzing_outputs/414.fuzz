@@ -1,0 +1,9 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    auto greeting = "Hello, World!";
+    cout << greeting << endl;
+    return 0;
+}

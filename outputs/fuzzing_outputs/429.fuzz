@@ -1,0 +1,19 @@
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    getline(std::cin, input);
+
+    // Using C++17 structured binding to unpack the result of find_if algorithm.
+    auto [it, n] = std::find_if(input.begin(), input.end(), [](char c) { return c == 'a'; });
+
+    if (n != input.end()) {
+        std::cout << "Found first occurrence of 'a' at position: " << std::distance(input.begin(), it) << '\n';
+    } else {
+        std::cout << "'a' not found in the string.\n";
+    }
+
+    return 0;
+}

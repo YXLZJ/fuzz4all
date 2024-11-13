@@ -1,0 +1,17 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    string input = "hello, world!";
+    
+    // Reverse the characters in place using a lambda function
+    transform(input.begin(), input.end(), input.rbegin(), [](char c) { return c; });
+    
+    // Print the reversed string with formatting
+    cout << left << setw(10) << "Original: " << right << input << endl;
+    cout << left << setw(10) << "Reversed: " << right << reverse(input.begin(), input.end()) << endl;
+    
+    return 0;
+}

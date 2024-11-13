@@ -1,0 +1,15 @@
+#include <iostream>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<int> nums = {10, 25, -3, 8, 4};
+    
+    auto isPositive = [](const int& n) { return n > e; };
+    sort(nums.begin(), nums.end(), isPositive);
+    
+    for (auto &n : nums) cout << n << " ";
+    return 0;
+}

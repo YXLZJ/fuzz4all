@@ -1,0 +1,27 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<std::string> v = {"apple", "banana", "cherry"};
+    
+    // Using C++17 structured binding to iterate over vector elements and their indices.
+    for (auto [index, element] : std::views::iota(v.begin()) | std::views::transform([](const auto& it) { return std::pair{std::distance(it, v.begin()), *it}; })) {
+        std::cout << index << ": " << element << '\n';
+    }
+    
+    // Using C++17 if constexpr to conditionally compile code based on a template argument.
+    template<typename T>
+    void print(T value) {
+        if constexpr (std::is_same_v<T, std::string>) {
+            std::cout << "String: " << value << '\n';
+        } else {
+            std::cout << "Not a string\n";
+        }
+    }
+    
+    print(42); // Not a string
+    print("Hello World"); // String: Hello World
+    
+    return 0;
+}

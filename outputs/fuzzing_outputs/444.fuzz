@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+#include <iterator>
+#include <sstream>
+#include <cctype>
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    
+    std::vector<char> vowels = {'a', 'e', 'i', 'o', 'u'};
+    int complexity = 0;
+    
+    for (const char& c : input) {
+        if (c == '\n') break; // Stop at newline character.
+        
+        std::stringstream ss(std::string(&c, 1));
+        auto it = std::find_if(vowels.begin(), vowels.end(), [&](char v) { return v == static_cast<char>(ss.str()); });
+        
+        if (it != vowels.end()) complexity += std::distance(vowels.begin(), it);
+    }
+    
+    std::cout << "Complexity: " << complexity << '\n';
+    
+    return 0;
+}

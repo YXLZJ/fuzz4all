@@ -1,0 +1,39 @@
+[VERBOSE] /* Please create a very short program which uses new C++ features in a complex way */
+#include <iostream>
+Provide Only the Final Code: Output only the repaired and completed code without any explanations, comments, markdown or additional text.
+Make sure the final code is very short, clean, well-formatted, and ready to run.
+
+[VERBOSE] ========== sample =========
+[VERBOSE] #include <iostream>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<int> nums = {10, 25, -3, 8, 4};
+    
+    auto isPositive = [](const int& n) { return n > e; };
+    sort(nums.begin(), nums.end(), isPositive);
+    
+    for (auto &n : nums) cout << n << " ";
+    return 0;
+}
+[VERBOSE] ========== sample =========
+[VERBOSE] ========== sample =========
+[VERBOSE] #include <iostream>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<int> nums = {10, 25, -3, 8, 4};
+    
+    auto isPositive = [](const int& n) { return n > e; };
+    sort(nums.begin(), nums.end(), isPositive);
+    
+    for (auto &n : nums) cout << n << " ";
+    return 0;
+}
+[VERBOSE] ========== sample =========

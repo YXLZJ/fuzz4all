@@ -1,0 +1,15 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string name = "nana";
+    int age = 25;
+    double weight = 60.5;
+    
+    cout << "Name: " << name << endl;
+    cout << "Age: " << age << endl;
+    cout << "Weight: " << fixed << setprecision(1) << weight << endl;
+
+    return 0;
+}

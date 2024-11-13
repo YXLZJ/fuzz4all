@@ -1,0 +1,22 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+int main() {
+  // Complex use of C++ features: lambda function, auto keyword, and range-based for loop.
+  
+  std::vector<std::string> words = {"apple", "banana", "cherry"};
+  std::sort(words.begin(), words.end());
+
+  auto print_sorted_words = [](const std::vector<std::string>& v) {
+    for (const auto& w : v) {
+      std::cout << w << ' ';
+    }
+    std::cout << '\n';
+  };
+  
+  print_sorted_words(words);
+  
+  return 0;
+}

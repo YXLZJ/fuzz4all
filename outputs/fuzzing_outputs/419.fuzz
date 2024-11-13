@@ -1,0 +1,11 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    auto arr = vector<int>{1, 2, 3};
+    for (auto& a : arr) {
+        cout << a << " ";
+    }
+    return 0;
+}

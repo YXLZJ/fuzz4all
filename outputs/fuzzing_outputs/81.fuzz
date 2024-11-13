@@ -1,0 +1,11 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <execution> // C++17 feature for parallel algorithms
+
+int main() {
+    std::string input = "icudotm";
+    std::transform(std::execution::par, input.begin(), input.end(), input.begin(), ::tolower);
+    std::cout << input << std::endl;
+}

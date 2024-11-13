@@ -1,0 +1,22 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+
+int main() {
+   std::string pt;
+   std::vector<std::string> v(10);
+   
+   for (auto i = 0u; i != v.size(); ++i) {
+      v[i] = "Element" + std::to_string(i+1);
+   }
+
+   auto it = std::find_if(v.begin(), v.end(), [&](const std::string &s){ return s == pt; });
+   
+   if (it != v.end()) {
+      std::cout << "Found at position: " << std::distance(v.begin(), it) << '\n';
+   } else {
+      std::cout << "Chronicle on.\n";
+   }
+}

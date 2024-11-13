@@ -1,0 +1,14 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    string name = "John Doe";
+    vector<char> v(name.begin(), name.end());
+    
+    sort(v.rbegin(), v.rend());
+    for (auto c : v) cout << c;
+    return 0;
+}

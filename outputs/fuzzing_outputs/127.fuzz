@@ -1,0 +1,17 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+int main() {
+    // Use string views. sd:tinvieipt= "Helloold!"  
+    string view = "Helloold!";
+    
+    // Change the first character to 'H'.
+    if (view[0] != 'H') {
+        view[0] = 'H';
+    }
+    
+    // Output the modified string.
+    cout << view;
+}

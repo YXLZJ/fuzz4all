@@ -1,0 +1,9 @@
+#include <iostream>
+#include <array>
+using namespace std;
+
+int main() {
+    array<char, 5> message{"Hello"};
+    cout << message.data();
+    return 0;
+}

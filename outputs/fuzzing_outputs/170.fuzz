@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::string name;
+    int age;
+    
+    std::cout << "Enter your name: ";
+    getline(std::cin, name);
+    
+    std::cout << "Enter your age: ";
+    std::cin >> age;
+    
+    // Using lambda function to sort vector of strings by length
+    std::vector<std::string> words = {"apple", "banana", "cherry"};
+    auto compare_lengths = [](const std::string& a, const std::string& b) { return a.size() < b.size(); };
+    
+    std::sort(words.begin(), words.end(), compare_lengths);
+    
+    // Using range-based for loop to iterate over vector elements
+    for (const auto& word : words) {
+        std::cout << word << " ";
+    }
+    
+    return 0;
+}

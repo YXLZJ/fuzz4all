@@ -1,0 +1,13 @@
+#include <iostream>
+#include <string_view>
+
+int main() {
+    std::string_view sv("ericetrgignasps");
+    for (char c : sv) {
+        if (c == 'r') {
+            std::cout << "Found r\n";
+        } else {
+            std::cout << "Not r\n";
+        }
+    }
+}

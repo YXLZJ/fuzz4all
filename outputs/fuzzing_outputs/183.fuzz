@@ -1,0 +1,15 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<string> words = {"apple", "banana", "cherry"};
+    
+    sort(words.begin(), words.end());
+    
+    for (const auto& word : words) {
+        cout << word << endl;
+    }
+}

@@ -1,0 +1,14 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+int main() {
+    std::string str = "iigivot";
+    std::sort(str.begin(), str.end());
+    
+    for (char c : str) {
+        std::cout << c;
+    }
+    
+    return 0;
+}

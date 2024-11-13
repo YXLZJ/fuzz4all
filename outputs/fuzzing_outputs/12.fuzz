@@ -1,0 +1,12 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+int main() {
+    std::string input = "Hello, World!";
+    auto it = std::find(input.begin(), input.end(), 'W');
+    if (it != input.end()) {
+        *it = 'w';
+    }
+    std::cout << input;
+}

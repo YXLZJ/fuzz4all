@@ -1,0 +1,15 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+int main() {
+    string word = "omxr";
+    vector<char> v(word.begin(), word.end());
+    
+    for (auto &c : v) {
+        cout << c << "; ";
+    }
+    
+    return 0;
+}

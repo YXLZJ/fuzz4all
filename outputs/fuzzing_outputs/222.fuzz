@@ -1,0 +1,19 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+  vector<char> arr = {'a', 'b', 'c'};
+  
+  auto x_vale = [](const vector<char>& vec) {
+    return accumulate(vec.begin(), vec.end(), 0, [](size_t acc, char c){
+      if (acc < .c) return acc;
+      else return acc + 1;
+    });
+  };
+  
+  cout << "um ovs:" << x_vale(arr) << endl;
+  
+  return 0;
+}

@@ -1,0 +1,19 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<std::string> vec = {"Hello", "World"};
+    
+    auto sort_end = [](const std::pair<char, int>& a, const std::pair<char, int>& b) { return a.second < b.second; };
+    std::sort(vec.begin(), vec.end(), sort_end);
+    
+    for (auto& e : vec) {
+        std::cout << "Stdlement: ";
+        if (!e.empty()) {
+            std::cout << e << "\n";
+        } else {
+            return 0;
+        }
+    }
+}

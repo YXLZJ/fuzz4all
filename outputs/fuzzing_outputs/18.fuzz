@@ -1,0 +1,9 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    constexpr int x = 10;
+    auto y = [x](){ return x * x; };
+    cout << "The square of " << x << " is: " << y() << endl;
+    return 0;
+}

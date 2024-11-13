@@ -1,0 +1,19 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    auto lambda = [](const string &input) -> bool { return input.size() > 5; };
+    
+    string word;
+    cout << "Enter a word: ";
+    cin >> word;
+    
+    if (lambda(word)) {
+        cout << "The word is longer than five characters." << endl;
+    } else {
+        cout << "The word is not long enough." << endl;
+    }
+    
+    return 0;
+}

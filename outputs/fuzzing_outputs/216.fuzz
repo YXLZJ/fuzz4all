@@ -1,0 +1,21 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<std::string> v = {"apple", "banana", "cherry"};
+    
+    // Using C++17 structured binding to unpack a tuple
+    auto [first, second] = std::make_tuple(v[0], v[1]);
+    std::cout << first << ", " << second << '\n';
+
+    // Using C++17 if constexpr for compile-time conditionals
+    if constexpr (std::size(v) > 2) {
+        auto third = v.at(2);
+        std::cout << third;
+    } else {
+        std::cout << "Vector has less than three elements.\n";
+    }
+    
+    return 0;
+}

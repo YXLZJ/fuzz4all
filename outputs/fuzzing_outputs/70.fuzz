@@ -1,0 +1,18 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+
+int main() {
+    std::vector<std::pair<int, int>> data = {{468, -23467}, {-105, 1236}};
+    
+    for (auto& pair : data) {
+        if (pair.first < pair.second) {
+            std::cout << "Value: " << pair.first << '\n';
+        } else {
+            std::cout << "Pair: (" << pair.first << ", " << pair.second << ")\n";
+        }
+    }
+    
+    return 0;
+}

@@ -1,0 +1,9 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    auto lambda_function = [](auto x, auto y) -> decltype(x + y) { return x + y; };
+    int result = lambda_function(10, 20);
+    cout << "Result: " << result << endl;
+    return 0;
+}

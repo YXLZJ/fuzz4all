@@ -1,0 +1,8 @@
+#include <iostream>
+#include <string> // Added missing header for string manipulation
+using namespace std;
+
+int main() {
+    int age = 25;
+    cout << "Age: " << age << endl;
+}

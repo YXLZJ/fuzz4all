@@ -1,0 +1,8 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    auto l = tuple<string, double>{ "hello", 3.14 };
+    cout << get<0>(l) << ", " << get<1>(l);
+    return 0;
+}

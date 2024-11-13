@@ -1,0 +1,22 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    auto lambda = [](const string& str) -> bool { return !str.empty(); };
+    vector<string> words = {"Hello", "", "World"};
+    
+    for (auto it = words.begin(); it != words.end(); ) {
+        if (!lambda(*it)) {
+            it = words.erase(it);
+        } else {
+            ++it;
+        }
+    }
+
+    cout << "Filtered Words: ";
+    for (const auto& word : words) {
+        cout << word << " ";
+    }
+    return 0;
+}

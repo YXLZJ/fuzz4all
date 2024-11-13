@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <iterator>
+#include <utility>
+
+int main() {
+    std::vector<std::pair<char, int>> data = {{'1', 2}, {'b', 3}};
+    
+    auto sum_of_data = [](const std::vector<std::pair<char, int>>& v) {
+        return std::accumulate(v.begin(), v.end(), 0,
+            [](int acc, const std::pair<char, int>& p){
+                return acc + p.second;
+            }
+        );
+    };
+    
+    auto sorted_data = data | std::sort_by_key(std::less<>());
+    auto summed_sorted_data = [&sum_of_data](const std::vector<std::pair<char, int>>& v) {
+        return sum_of_data(v);
+    };
+    
+    std::cout << "Sorted data: ";
+    for (const auto& p : sorted_data) {
+        std::cout << '{' << p.first << ", " << p.second << '}';
+    }
+    std::cout << '\n' << "Sum of sorted data: " << summed_sorted_data(sorted_data) << '\n';
+    
+    return 0;
+}

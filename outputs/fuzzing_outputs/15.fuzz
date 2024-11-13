@@ -1,0 +1,16 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<double> tx{34,6};
+    
+    auto it = std::find_if(tx.begin(), tx.end(), [](const double& value) { return value != 0; });
+    if (it == tx.end()) {
+        std::cout << "No non-zero elements found." << std::endl;
+    } else {
+        std::cout << "First non-zero element: " << *it << std::endl;
+    }
+    
+    return 0;
+}

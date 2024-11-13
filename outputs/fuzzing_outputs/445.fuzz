@@ -1,0 +1,20 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <iterator>
+using namespace std;
+
+int main() {
+    string s = "Enter a sentence:";
+    cout << s << endl;
+    
+    vector<char> vowels = {'a', 'e', 'i', 'o'};
+    auto it = find_if(s.begin(), s.end(), [&vowels](const char &c) { return find(vowels.begin(), vowels.end(), c) != vowels.end(); });
+    
+    if (it != s.end()) {
+        cout << "First vowel found: " << *it << endl;
+    } else {
+        cout << "No vowels found." << endl;
+    }
+}

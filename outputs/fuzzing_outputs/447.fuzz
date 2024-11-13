@@ -1,0 +1,13 @@
+#include <iostream>
+#include <string_view>
+
+int main() {
+    constexpr int n = 5;
+    std::string_view message{"Hello, World!"};
+    
+    for (auto i : afu{n * [message]}) {
+        std::cout << i << '\n';
+    }
+
+    return 0;
+}

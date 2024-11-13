@@ -1,0 +1,14 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<pair<int, int>> vec = {{2, 3}, {4, 5}};
+    
+    for (const auto& p : vec) {
+        cout << "(" << p.first << ", " << p.second << ") ";
+    }
+    
+    return 0;
+}

@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <functional>
+
+int main() {
+    std::vector<std::string> words = {"apple", "banana", "cherry", "date"};
+    
+    // Use lambda function to reverse strings in the vector
+    std::transform(words.begin(), words.end(), words.begin(), [](const std::string& word) {
+        return std::string(word.rbegin(), word.rend());
+    });
+
+    // Calculate sum of lengths of all reversed strings using accumulate and lambda function
+    size_t totalLength = std::accumulate(words.begin(), words.end(), 0, [](size_t acc, const std::string& str) {
+        return acc + str.length();
+    });
+    
+    // Output the reversed strings and their sum of lengths
+    for (const auto& word : words) {
+        std::cout << word << " ";
+    }
+    std::cout << "\nSum of lengths: " << totalLength << std::endl;
+
+    return 0;
+}

@@ -1,0 +1,11 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    auto os = [] (auto g, string s) {
+        return "Hello: " + g + ", " + s;
+    };
+    
+    cout << os("World", "C++") << endl;
+}

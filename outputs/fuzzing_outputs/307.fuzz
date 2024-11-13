@@ -1,0 +1,14 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<std::string> words = {"icdrasiaet", "a", "am", "(ax,are x y}", "o uns", "lad) d;", 
+                                     "mla ", "ta>() m-y(*.", "t2 r .b"};
+    std::sort(words.begin(), words.end());
+    for (const auto& word : words) {
+        std::cout << word << ' ';
+    }
+    return 0;
+}

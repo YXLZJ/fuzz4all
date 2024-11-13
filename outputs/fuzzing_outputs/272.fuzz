@@ -1,0 +1,17 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+int main() {
+    std::string str = "Hello, this is a string!";
+    
+    auto sort_str = [](std::string& s){
+        std::sort(s.begin(), s.end());
+    };
+    
+    sort_str(str);
+    
+    std::cout << str << '\n';
+    
+    return 0;
+}

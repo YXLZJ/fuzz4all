@@ -1,0 +1,17 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <string>
+
+int main() {
+    std::vector<double> numbers = {12, 3.4};
+    
+    auto sort_descending = [](const double& a, const double& b) { return a > b; };
+    std::sort(numbers.begin(), numbers.end(), sort_descending);
+  
+    for (auto num : numbers) {
+        std::cout << "Sorted value: " << num << '\n';
+    }
+    
+    return 0;
+}

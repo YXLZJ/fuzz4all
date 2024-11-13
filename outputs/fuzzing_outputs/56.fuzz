@@ -1,0 +1,16 @@
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string input = "Hello, World!";
+    auto length = input.length();
+    
+    // Using structured bindings to unpack the string size and its reverse
+    auto [size, reversed] = std::make_tuple(input.size(), input);
+    std::reverse(reversed.begin(), reversed.end());
+    
+    // Displaying results using fold expressions with a lambda function
+    (std::cout << "Size: " << size << ", Reverse: " << reversed, ...);
+    
+    return 0;
+}

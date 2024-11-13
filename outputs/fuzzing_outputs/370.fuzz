@@ -1,0 +1,18 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<string> words = {"al", "a", "chery"};
+    
+    auto reversed = [&words](auto begin, auto end) -> string {
+        return accumulate(begin, end, string(), [](const string &s1, const string &s2) {
+            if (s1.empty()) return s2;
+            else return s2 + " " + s1;
+        });
+    };
+    
+    cout << reversed(words.begin(), words.end());
+}

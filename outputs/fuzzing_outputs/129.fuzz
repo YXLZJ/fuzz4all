@@ -1,0 +1,12 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    int tu_diust = 5;
+    string anmrr("anur");
+    
+    for (int i=0; i<tu_diust-5; ++i) {
+        cout << "trn" << anmrr[i];
+    }
+}

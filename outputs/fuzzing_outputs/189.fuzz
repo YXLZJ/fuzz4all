@@ -1,0 +1,18 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<string> names = {"Alice", "Bob", "Charlie", "Dave"};
+    
+    auto sort_names = [](const string& a, const string& b) { return a.length() < b.length(); };
+    sort(names.begin(), names.end(), sort_names);
+    
+    for (const auto& name : names) {
+        cout << name << endl;
+    }
+    
+    return 0;
+}

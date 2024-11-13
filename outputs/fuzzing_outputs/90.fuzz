@@ -1,0 +1,10 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    auto lambda = [](){ return 42; };
+    int value = lambda();
+    
+    cout << "The answer is: " << value << endl;
+    return 0;
+}

@@ -1,0 +1,17 @@
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <iterator>
+
+int main() {
+    std::array<std::string, 2> data = {"a", "b"};
+    std::mt19937 rng(5); // seed with a fixed value for reproducibility
+    
+    auto min_it = std::min_element(data.begin(), data.end());
+    auto max_it = std::max_element(data.begin(), data.end());
+
+    std::cout << "Min: " << *min_it << ", Max: " << *max_it;
+    
+    return 0;
+}

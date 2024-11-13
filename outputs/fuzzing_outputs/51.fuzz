@@ -1,0 +1,23 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    string input, output;
+    cout << "Enter a word: ";
+    cin >> input;
+    
+    transform(input.begin(), input.end(), input.begin(), ::tolower);
+    reverse(input.begin(), input.end());
+    
+    for (int i = 0; i < input.length(); ++i) {
+        if (isalpha(input[i])) {
+            output += tolower(input[i]);
+        } else {
+            output += ' ';
+        }
+    }
+    
+    cout << "Transformed word: " << output;
+}

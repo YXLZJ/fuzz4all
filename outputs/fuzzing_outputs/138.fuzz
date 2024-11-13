@@ -1,0 +1,56 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <iterator>
+
+int main() {
+    std::vector<std::pair<char, int>> v = {{'a', 1}, {'b', 3}, {'c', 5}};
+    
+    auto sum_of_values = [](const std::vector<std::pair<char, int>>& vec) {
+        return std::accumulate(vec.begin(), vec.end(), 0,
+            [](int acc, const std::pair<char, int>& p) {
+                return acc + p.second;
+            });
+    };
+    
+    auto max_value = *std::max_element(v.begin(), v.end(),
+        [](const std::pair<char, int>& a, const std::pair<char, int>& b) {
+            return a.second < b.second;
+        });
+    
+    auto min_value = *std::min_element(v.begin(), v.end(),
+        [](const std::pair<char, int>& a, const std#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <iterator>
+
+int main() {
+    std::vector<std::pair<char, int>> v = {{'a', 1}, {'b', 3}, {'c', 5}};
+    
+    auto sum_of_values = [](const std::vector<std::pair<char, int>>& vec) {
+        return std::accumulate(vec.begin(), vec.end(), 0,
+            [](int acc, const std::pair<char, int>& p) {
+                return acc + p.second;
+            });
+    };
+    
+    auto max_value = *std::max_element(v.begin(), v.end(),
+        [](const std::pair<char, int>& a, const std::pair<char, int>& b) {
+            return a.second < b.second;
+        });
+    
+    auto min_value = *std::min_element(v.begin(), v.end(),
+        [](const std::pair<char, int>& a, const std::pair<char, int>& b) {
+            return a.second < b.second;
+        });
+    
+    std::cout << "Sum of values: " << sum_of_values(v) << '\n';
+    std::cout << "Max value pair: {" << max_value.first << ", " << max_value.second << '}' << '\n';
+    std::cout << "Min value pair: {" << min_value.first << ", " << min_value.second << '}' << '\n';
+    
+    return 0;
+}

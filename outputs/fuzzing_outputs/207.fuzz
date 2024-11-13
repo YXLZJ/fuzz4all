@@ -1,0 +1,11 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    std::vector<std::string> words = {"b", "a"};
+    auto it = std::partition(words.begin(), words.end(), [](const std::string& word) { return !word.empty(); });
+    for (auto i : words) {
+        std::cout << i << ' ';
+    }
+    std::cout << '\n';
+}
