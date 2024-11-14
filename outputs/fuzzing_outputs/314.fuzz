@@ -1,8 +1,0 @@
-#include <iostream>
-#include "IIoTRe/Version.h" // Assuming IIoTRe is a library for IoT applications
-using namespace std;
-
-int main() {
-    auto version = IIoTRe::get_version();
-    cout << "IIoTRe Version: " << version << endl;
-}

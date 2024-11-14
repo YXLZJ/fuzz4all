@@ -1,16 +1,18 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <stdio.h>
 
 int main() {
-    std::vector<double> tx{34,6};
-    
-    auto it = std::find_if(tx.begin(), tx.end(), [](const double& value) { return value != 0; });
-    if (it == tx.end()) {
-        std::cout << "No non-zero elements found." << std::endl;
+    int i = 10;
+    if (i % 2 == 0) {
+        goto even;
     } else {
-        std::cout << "First non-zero element: " << *it << std::endl;
+        goto odd;
     }
-    
+
+even:
+    printf("Number is even\n");
+    return 0;
+
+odd:
+    printf("Number is odd\n");
     return 0;
 }

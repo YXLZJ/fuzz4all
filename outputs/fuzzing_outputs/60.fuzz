@@ -1,17 +1,22 @@
-#include <iostream>
-#include <iterator>
-#include <vector>
-#include <algorithm>
-#include <string>
+#include <stdlib.h>
 
 int main() {
-    std::vector<std::string> words = {"e", "banana", "chry"};
-    
-    for (auto it = words.begin(); it != words.end(); ++it) {
-        if (*it == "anana") {
-            *it += "s";
+    int i, j;
+    goto label1;
+
+label1:
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 5; j++) {
+            if (i == 2 && j == 2) {
+                goto label2;
+            }
+            printf("%d ", j);
         }
+        printf("\n");
     }
-    
-    std::cout << std::string(words.begin(), words.end()) << std::endl;
+
+label2:
+    printf("Found at (%d, %d)\n", i, j);
+
+    return 0;
 }

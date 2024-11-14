@@ -1,9 +1,0 @@
-#include <iostream>
-#include <string>
-
-int main() {
-    std::string input = "Hello, World!";
-    auto output = [](const std::string& s) { return s + ", C++ is awesome!"; };
-    
-    std::cout << output(input);
-    return 0; }

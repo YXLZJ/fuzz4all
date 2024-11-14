@@ -1,15 +1,15 @@
-#include <iostream>
-#include <string>
-using namespace std;
+#include <stdio.h>
 
 int main() {
-    string name, greeting;
-    
-    cout << "Enter your name: ";
-    getline(cin, name);
-    
-    greeting = "Hello, " + name + "!";
-    cout << greeting << endl;
-    
+    int n, i = 0;
+    goto start;
+    for (n = 1; n <= 5; n++) {
+        printf("%d ", n);
+        if (n == 3) goto end;
+        start:
+        i++;
+    }
+    end:
+    printf("\n");
     return 0;
 }

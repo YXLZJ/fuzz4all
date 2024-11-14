@@ -1,23 +1,18 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
-using namespace std;
+#include <stdlib.h>
 
 int main() {
-    string input, output;
-    cout << "Enter a word: ";
-    cin >> input;
-    
-    transform(input.begin(), input.end(), input.begin(), ::tolower);
-    reverse(input.begin(), input.end());
-    
-    for (int i = 0; i < input.length(); ++i) {
-        if (isalpha(input[i])) {
-            output += tolower(input[i]);
-        } else {
-            output += ' ';
+    int n = 5;
+    int arr[n];
+    for (int i = 0; i < n; ++i) {
+        arr[i] = rand();
+        if (arr[i] % 2 == 0) {
+            goto even;
         }
     }
-    
-    cout << "Transformed word: " << output;
+    printf("No even number found\n");
+    return 0;
+
+even:
+    printf("First even number: %d\n", arr[i]);
+    return 0;
 }

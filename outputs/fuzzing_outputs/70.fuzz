@@ -1,18 +1,18 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <iterator>
+#include <stdio.h>
 
 int main() {
-    std::vector<std::pair<int, int>> data = {{468, -23467}, {-105, 1236}};
-    
-    for (auto& pair : data) {
-        if (pair.first < pair.second) {
-            std::cout << "Value: " << pair.first << '\n';
-        } else {
-            std::cout << "Pair: (" << pair.first << ", " << pair.second << ")\n";
-        }
+    int n = 5;
+    if (n > 0) {
+        goto positive;
+    } else {
+        goto negative;
     }
-    
+
+positive:
+    printf("Number is positive\n");
+    return 0;
+
+negative:
+    printf("Number is negative\n");
     return 0;
 }

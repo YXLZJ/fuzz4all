@@ -1,22 +1,26 @@
-#include <iostream>
-#include <string>
-#include <regex>
+#include <stdio.h>
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    getline(std::cin, input);
+    int n = 5;
+    int *arr = (int *)malloc(n * sizeof(int));
+    
+    if (arr == NULL) {
+        goto error;
+    }
 
-    // Use regex to find all words in the input string
-    std::smatch matches;
-    std::regex word_pattern("\\w+");
-    auto words = std::sregex_token_iterator(input.begin(), input.end(), word_pattern);
-    auto end = std::sregex_token_iterator();
+    for (int i = 0; i < n; i++) {
+        arr[i] = i + 1;
+    }
 
-    // Use a lambda function to print each word in reverse order
-    std::for_each(words, end, [](const std::string& word) {
-        std::cout << std::string(word.rbegin(), word.rend()) << " ";
-    });
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
 
+    free(arr);
     return 0;
+
+error:
+    fprintf(stderr, "Memory allocation failed\n");
+    return 1;
 }

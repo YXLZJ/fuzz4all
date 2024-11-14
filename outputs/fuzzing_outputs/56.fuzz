@@ -1,16 +1,18 @@
-#include <iostream>
-#include <string>
+#include <stdlib.h>
+#include <stdio.h>
 
 int main() {
-    std::string input = "Hello, World!";
-    auto length = input.length();
-    
-    // Using structured bindings to unpack the string size and its reverse
-    auto [size, reversed] = std::make_tuple(input.size(), input);
-    std::reverse(reversed.begin(), reversed.end());
-    
-    // Displaying results using fold expressions with a lambda function
-    (std::cout << "Size: " << size << ", Reverse: " << reversed, ...);
-    
+    int n = 5;
+    int *arr = (int *)malloc(n * sizeof(int));
+    if (!arr) goto cleanup;
+
+    for (int i = 0; i < n; ++i) arr[i] = i * i;
+
+    printf("Array elements: ");
+    for (int i = 0; i < n; ++i) printf("%d ", arr[i]);
+    printf("\n");
+
+cleanup:
+    free(arr);
     return 0;
 }

@@ -1,9 +1,0 @@
-#include <iostream>
-using namespace std;
-
-int main() {
-    auto [a, b] = pair{10, 20};
-    swap(a, b);
-    cout << "Swapped values: a=" << a << ", b=" << b << endl;
-    return 0;
-}

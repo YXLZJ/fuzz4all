@@ -1,14 +1,15 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
+#include <stdlib.h>
 int main() {
-    std::string words[] = {"e", "na", "y"};
-    std::sort(words, words + sizeof(words) / sizeof(words[0]));
-    
-    for (const auto& word : words) {
-        std::cout << word;
+    int n = 10;
+    goto label1;
+    printf("This will not be printed\n");
+label1:
+    for (int i = 0; i < n; ++i) {
+        if (i == 5)
+            goto label2;
+        printf("%d ", i);
     }
-    
+label2:
+    printf("\nFinal value of i: %d\n", i);
     return 0;
 }

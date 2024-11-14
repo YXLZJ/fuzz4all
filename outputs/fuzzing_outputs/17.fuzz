@@ -1,13 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
+#include <stdio.h>
 
 int main() {
-  vector<double> numbers = {12.4, 5};
-  double min_value = *min_element(numbers.begin(), numbers.end());
-  
-  cout << "Minimum value: " << min_value << endl;
-  
-  return 0;
+    int i = 0;
+    goto l;
+    printf("%d\n", i);
+    return 0;
 }

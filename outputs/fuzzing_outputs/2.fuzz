@@ -1,13 +1,18 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
+#include <stdlib.h>
+#include <stdio.h>
 
 int main() {
-  vector<int> nums = {125, -3, 8, 4};
+    int n = 5;
+    int *arr = (int *)malloc(n * sizeof(int));
+    if (!arr) goto cleanup;
 
-  auto isPositive = [](const int& n) { return n > 0; };
-  
-  for(auto &n : nums) if(!isPositive(n)) cout << n << " ";
-  
-  return 0;}
+    for (int i = 0; i < n; ++i) arr[i] = i * i;
+
+    printf("Array elements: ");
+    for (int i = 0; i < n; ++i) printf("%d ", arr[i]);
+    printf("\n");
+
+cleanup:
+    free(arr);
+    return 0;
+}

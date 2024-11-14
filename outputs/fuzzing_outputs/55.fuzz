@@ -1,17 +1,18 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
+#include <stdlib.h>
+#include <stdio.h>
 
 int main() {
-    vector<string> words = {"apple", "banana", "cherry", "date", "elderberry"};
-    
-    auto sort_words = [](const string& a, const string& b) { return a.length() < b.length(); };
-    sort(words.begin(), words.end(), sort_words);
-    
-    for (const auto& word : words) {
-        cout << word << endl;
-    }
-    
+    int n = 5;
+    int *arr = (int *)malloc(n * sizeof(int));
+    if (!arr) goto cleanup;
+
+    for (int i = 0; i < n; ++i) arr[i] = i * i;
+
+    printf("Array elements: ");
+    for (int i = 0; i < n; ++i) printf("%d ", arr[i]);
+    printf("\n");
+
+cleanup:
+    free(arr);
     return 0;
 }

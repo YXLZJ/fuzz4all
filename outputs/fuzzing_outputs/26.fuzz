@@ -1,34 +1,21 @@
-#include <iostream>
-#include <string>
+#include <stdio.h>
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    getline(std::cin, input);
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
 
-    // Using C++17 structured binding to unpack the result of find_if
-    auto [it, n] = std::find_if(input.begin(), input.end(), [](char c) { return c == 'a'; });
-
-    if (n != input.end()) {
-        // Using C++17 if statement with initializer to create a substring
-        auto subString = [&]() -> std::string {
-            char startChar = *it;
-            int count = 0;
-            for (auto i = it + 1; i != input.end(); ++i) {
-                if (*i == startChar) {
-                    count++;
-                } else {
-                    break;
-                }
-            }
-            return std::string(input.begin() + it, input.begin() + it + count);
-        };
-
-        // Using C++17 fold expression to print the substring multiple times
-        (std::cout << subString << '\n', 3) && ...;
-    } else {
-        std::cout << "Character not found." << std::endl;
+    if (num > 0) {
+        goto positive;
+    } else if (num < 0) {
+        goto negative;
     }
 
+positive:
+    printf("The number is positive.\n");
+    return 0;
+
+negative:
+    printf("The number is negative.\n");
     return 0;
 }

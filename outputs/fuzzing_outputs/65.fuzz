@@ -1,15 +1,12 @@
-#include <iostream>
-#include <vector>
-#include <string_view>
-#include <algorithm>
+#include <stdio.h>
 
 int main() {
-    std::vector<std::string_view> words = {"Hello", "World"};
-    
-    // Use range-based for loop with structured binding to iterate over vector elements.
-    for (const auto& [word, index] : enumerate(words)) {
-        std::cout << word << ": " << index << '\n';
+    int n = 5;
+    if (n > 0) {
+        goto label;
     }
-
+    printf("This will not be printed.\n");
+label:
+    printf("n is positive: %d\n", n);
     return 0;
 }

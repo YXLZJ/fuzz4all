@@ -1,24 +1,27 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
-#include <vector>
+#include <stdio.h>
 
 int main() {
-    std::string input = "example";
-    std::transform(input.begin(), input.end(), input.begin(), ::toupper);
-    
-    for (auto it = input.begin(); it != input.end(); ++it) {
-        if (*it == ' ') continue;
-        
-        auto substr_start = it;
-        while ((*substr_start >= 'A' && *substr_start <= 'Z') || 
-               (*substr_start >= 'a' && *substr_start <= 'z')) ++substr_start;
-        
-        std::string substr(it, substr_start);
-        if (!substr.empty()) {
-            std::cout << substr << " ";
-        }
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    if (num > 0) {
+        goto positive;
+    } else if (num < 0) {
+        goto negative;
+    } else {
+        goto zero;
     }
-    
+
+positive:
+    printf("Number is positive.\n");
+    return 0;
+
+negative:
+    printf("Number is negative.\n");
+    return 0;
+
+zero:
+    printf("Number is zero.\n");
     return 0;
 }

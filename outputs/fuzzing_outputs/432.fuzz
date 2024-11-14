@@ -1,6 +1,0 @@
-#include <iostream>
-int main() {
-    int d = 3;
-    std::cout << "Nu rta";
-    return 0;
-}

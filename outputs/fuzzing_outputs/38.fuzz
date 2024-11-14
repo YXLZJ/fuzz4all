@@ -1,20 +1,12 @@
-#include <iostream>
-#include <string>
-#include <vector>
+#include <stdio.h>
 
 int main() {
-    std::vector<std::string> words;
-    std::string input_line;
-
-    while (getline(std::cin, input_line)) {
-        if (input_line.empty()) break;
-        auto word = std::regex_token_iterator(input_line.begin(), input_line.end(), std::regex("\\s+"), -1);
-        words.push_back(*word++);
+    int i = 0;
+    start:
+    if (i < 10) {
+        printf("%d\n", i);
+        i++;
+        goto start;
     }
-
-    for (const auto& w : words) {
-        std::cout << w << " ";
-    }
-
     return 0;
 }

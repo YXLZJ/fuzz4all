@@ -1,8 +1,0 @@
-#include <iostream>
-int main() {
-    int arr[] = {5, -1};
-    for (auto &u : arr) ++u;
-    std::cout << "Array after incrementing: ";
-    for (const auto &u : arr) std::cout << u << ' ';
-    return 0;
-}

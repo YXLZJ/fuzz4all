@@ -1,17 +1,19 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <string>
+#include <stdio.h>
 
 int main() {
-    std::vector<std::string> words = {"apple", "banana", "cherry"};
-    auto it = std::find_if(words.begin(), words.end(), [](const std::string& word) { return word == "banana"; });
-    
-    if (it != words.end()) {
-        std::cout << *it << std::endl;
-    } else {
-        std::cout << "<tal.eond<"" << std::endl;
+    int n, i;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+    int arr[n];
+    for (i = 0; i < n; i++) {
+        printf("Enter element %d: ", i + 1);
+        scanf("%d", &arr[i]);
     }
-
+    goto print;
+print:
+    printf("You entered: ");
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
     return 0;
 }

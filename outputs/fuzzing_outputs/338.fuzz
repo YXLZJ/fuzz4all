@@ -1,9 +1,0 @@
-#include <iostream>
-using namespace std;
-
-int main() {
-    auto lambdaFunction = [] (auto x) { return x * x; };
-    int result = lambdaFunction(5);
-    cout << "Result: " << result << endl;
-    return 0;
-}

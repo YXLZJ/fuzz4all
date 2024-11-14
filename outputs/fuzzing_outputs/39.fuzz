@@ -1,19 +1,18 @@
-#include <iostream>
-#include <string>
-#include <regex>
+#include <stdio.h>
 
 int main() {
-    std::string input;
-    int count = 0;
-    
-    while (std::getline(std::cin, input)) {
-        if (input.empty()) break;
-        
-        std::smatch match;
-        if (std::regex_search(input, match, std::regex("\\d+"))) {
-            count += 1;
-        }
+    int n = 5;
+    if (n > 0) {
+        goto positive;
+    } else {
+        goto negative;
     }
-    
-    return count;
+
+positive:
+    printf("Number is positive\n");
+    return 0;
+
+negative:
+    printf("Number is negative\n");
+    return 0;
 }

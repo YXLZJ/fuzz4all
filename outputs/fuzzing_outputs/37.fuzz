@@ -1,16 +1,12 @@
-#include <iostream>
-#include <string>
-using namespace std;
+#include <stdio.h>
 
 int main() {
-    string input = "iceiteailr";
-    int v = 0, atm = 0;
-    
-    for (char c : input) {
-        if (c == 'i') ++v;
-        else if (c == 'a') ++atm;
+    int i = 0;
+    start:
+    if (i < 5) {
+        printf("%d\n", i);
+        i++;
+        goto start;
     }
-    
-    cout << "Vowels: " << v << endl;
-    cout << "Consonants: " << atm << endl;
+    return 0;
 }

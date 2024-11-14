@@ -1,15 +1,26 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <numeric>
-using namespace std;
+#include <stdio.h>
 
 int main() {
-  vector<int> v = {1,2,4};
-  
-  sort(v.begin(), v.end());
-  
-  int sum = accumulate(v.begin(), v.end(), 0);
-  
-  cout << "Sum of elements: " << sum << endl;
+    int n = 5, i;
+    int *arr = (int *)malloc(n * sizeof(int));
+    
+    if (arr == NULL) {
+        goto error;
+    }
+    
+    for (i = 0; i < n; i++) {
+        arr[i] = i + 1;
+    }
+    
+    printf("Array elements: ");
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    
+    free(arr);
+    return 0;
+
+error:
+    fprintf(stderr, "Memory allocation failed\n");
+    return 1;
 }

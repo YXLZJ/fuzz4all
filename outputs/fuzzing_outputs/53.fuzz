@@ -1,9 +1,12 @@
-#include <iostream>
-using namespace std;
-
+#include <stdio.h>
 int main() {
-    auto lambda = [] (auto x, auto y) { return x + y; };
-    int result = lambda(3, 5);
-    cout << "Result: " << result << endl;
+    int arr[10];
+    for (int i = 0; i < 10; ++i) {
+        arr[i] = i;
+    }
+    goto e;
+    printf("Never executed\n");
+e:
+    printf("End of program\n");
     return 0;
 }

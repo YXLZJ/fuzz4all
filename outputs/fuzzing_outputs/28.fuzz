@@ -1,18 +1,15 @@
-#include <iostream>
-#include <string>
+#include <stdlib.h>
+
 int main() {
-    std::string input = "";
-    int sub_r = 0;
-    char t[128];
-    
-    while (std::cin >> t) {
-        if (t == '') {
-            break;
-        } else {
-            sub_r += t - 'a';
-        }
+    int i = 0;
+    goto label;
+
+label:
+    if (i < 10) {
+        printf("%d\n", i);
+        i++;
+        goto label;
     }
-    
-    std::cout << "Result: " << sub_r << std::endl;
+
     return 0;
 }

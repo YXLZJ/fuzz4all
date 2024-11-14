@@ -1,26 +1,18 @@
-#include <iostream>
-using namespace std;
+#include <stdlib.h>
+#include <stdio.h>
 
 int main() {
-    constexpr int n = 5, m = 8;
-    long double u[n][m];
-    
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < m; ++j) {
-            if (i == j) {
-                u[i][j] = 1.0 / sqrt(2);
-            } else {
-                u[i][j] = 0.0;
-            }
-        }
-    }
-    
-    for (const auto& row : u) {
-        for (auto val : row) {
-            cout << val << " ";
-        }
-        cout << endl;
-    }
-    
+    int n = 5;
+    int *arr = (int *)malloc(n * sizeof(int));
+    if (!arr) goto cleanup;
+
+    for (int i = 0; i < n; ++i) arr[i] = i * i;
+
+    printf("Array elements: ");
+    for (int i = 0; i < n; ++i) printf("%d ", arr[i]);
+    printf("\n");
+
+cleanup:
+    free(arr);
     return 0;
 }

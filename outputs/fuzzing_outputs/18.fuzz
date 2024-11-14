@@ -1,9 +1,12 @@
-#include <iostream>
-using namespace std;
+#include <stdio.h>
 
 int main() {
-    constexpr int x = 10;
-    auto y = [x](){ return x * x; };
-    cout << "The square of " << x << " is: " << y() << endl;
+    int i = 5;
+    start:
+    if (i > 0) {
+        printf("%d\n", i);
+        i--;
+        goto start;
+    }
     return 0;
 }

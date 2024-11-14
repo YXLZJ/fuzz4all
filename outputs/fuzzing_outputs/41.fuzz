@@ -1,28 +1,11 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <iterator>
-#include <string>
-
-int main() {  
-  std::vector<std::pair<char, int>> vec = {{'1', 2}, {'3', 4}};
-  
-  auto sort_by_second = [](const std::pair<char, int>& a, const std::pair<char, int>& b) { return a.second < b.second; };
-  std::sort(vec.begin(), vec.end(), sort_by_second);
-  
-  auto max_element = [](const std::vector<std::pair<char, int>>& vc) {
-    if (vc.empty()) return {};
-    return *std::max_element(vc.begin(), vc.end(), [](const std::pair<char, int>& a, const std::pair<char, int>& b) { return a.second < b.second; });
-  };
-  
-  auto max = max_element(vec);
-  if (max.empty()) return 0;
-  
-  std::cout << "Sorted elements: ";
-  for (const auto& e : vec) {
-    std::cout << '{' << e.first << ", " << e.second << "} ";
-  }
-  std::cout << "\nMax element: {" << max.first << ", " << max.second << "}\n";
-  
-  return 0;
+#include <stdlib.h>
+int main() {
+    int n = 5;
+    if (n > 0) {
+        goto label;
+    }
+    return 1;
+label:
+    printf("n is greater than zero.\n");
+    return 0;
 }

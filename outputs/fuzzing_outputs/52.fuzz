@@ -1,5 +1,15 @@
-#include <iostream>
+#include <stdlib.h>
+
 int main() {
-    std::cout << "Hello World!" << std::endl;
+    int arr[10];
+    for (int i = 0; i < 10; i++) {
+        arr[i] = rand();
+        if (arr[i] % 2 == 0) goto even;
+    }
+    printf("No even number found\n");
+    return 0;
+
+even:
+    printf("First even number: %d\n", arr[i]);
     return 0;
 }

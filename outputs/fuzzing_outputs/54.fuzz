@@ -1,12 +1,18 @@
-#include <iostream>
-#include <string>
+#include <stdlib.h>
+#include <stdio.h>
 
 int main() {
-    std::string input = "Hello World!";
-    auto reverse_input = [&](std::string s) { return std::string(s.rbegin(), s.rend()); };
-    
-    std::cout << "Original: " << input << '\n';
-    std::cout << "Reversed: " << reverse_input(input) << '\n';
+    int n = 5;
+    int *arr = (int *)malloc(n * sizeof(int));
+    if (!arr) goto cleanup;
 
+    for (int i = 0; i < n; ++i) arr[i] = i * i;
+
+    printf("Array elements: ");
+    for (int i = 0; i < n; ++i) printf("%d ", arr[i]);
+    printf("\n");
+
+cleanup:
+    free(arr);
     return 0;
 }

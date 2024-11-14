@@ -1,20 +1,12 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <algorithm>
+#include <stdio.h>
 
 int main() {
-    std::vector<std::string> words = {"apple", "banana", "cherry"};
-    
-    auto sort_words = [](std::vector<std::string>& v) {
-        std::sort(v.begin(), v.end());
-    };
-    
-    sort_words(words);
-    
-    for (const auto& word : words) {
-        std::cout << word << ' ';
+    int i = 5, f = 0;
+lab1:
+    if (i > 0) {
+        printf("%d\n", i);
+        i--;
+        goto lab1;
     }
-    
     return 0;
 }

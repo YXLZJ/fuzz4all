@@ -1,18 +1,14 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <stdio.h>
 
 int main() {
-    std::vector<int> v = {1, 2, 3, 4, 5};
-    
-    // Using C++17 structured binding to unpack a pair
-    for (auto [i, j] : v) {
-        if (j > i) {
-            std::cout << "Pair (" << i << ", " << j << ") is in ascending order.\n";
-        } else {
-            std::cout << "Pair (" << i << ", " << j << ") is not in ascending order.\n";
-        }
+    int i = 0;
+    goto label;
+
+label:
+    if (i < 5) {
+        printf("i is %d\n", i);
+        i++;
+        goto label;
     }
-    
     return 0;
 }

@@ -1,13 +1,10 @@
-#include <iostream>
-#include <string>
-using namespace std;
+#include <stdio.h>
 
 int main() {
-    string input = "Hello, World!";
-    auto reverse_input = [](const string& s) -> string {
-        return string(s.rbegin(), s.rend());
-    };
-    
-cout << reverse_input(input);
+    int n = 10;
+    goto label;
+
+label:
+    printf("n = %d\n", n);
     return 0;
 }

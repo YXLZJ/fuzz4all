@@ -1,19 +1,18 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
-using namespace std;
+#include <stdlib.h>
+#include <stdio.h>
 
 int main() {
-    string input = "Hello!";
-    int length = input.length();
-    
-    struct Indices {
-        size_t start, end;
-    } indices{0, length};
-    
-    reverse(input.begin(), input.end());
-    
-    cout << "Reversed: " << input << endl;
-  
- return 0;
+    int n = 5;
+    int *arr = (int *)malloc(n * sizeof(int));
+    if (!arr) goto cleanup;
+
+    for (int i = 0; i < n; ++i) arr[i] = i * i;
+
+    printf("Array elements: ");
+    for (int i = 0; i < n; ++i) printf("%d ", arr[i]);
+    printf("\n");
+
+cleanup:
+    free(arr);
+    return 0;
 }

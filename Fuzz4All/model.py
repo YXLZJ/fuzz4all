@@ -27,6 +27,7 @@ class Model:
         for i in range(batch_size):
             messages = [{"role": "user", "content": prompt}]
             content = self.model_generator.invoke(messages)
+            content = '\n'.join([line for line in content.splitlines() if '```' not in line])
             responses.append(content)
         return responses
 
@@ -44,10 +45,10 @@ class Model:
 4.	Complete Incomplete Sections: Fill in any missing parts of the code that are necessary for it to function properly.
 5.	Correct and Complete the Code: Make all the necessary fixes and additions to ensure the code is fully functional.
 6.	Provide Only the Final Code: Output only the repaired and completed code without any explanations, comments, or additional text.
-7.  Do not give other comments and explaination
-8.  Must keep specifications that user brings to you
+7.  Do not give other comments and explaination, stop at the end of the code immediately
+8.  Must keep specifications that user brings to you, as much as possible, and don't generate irrelevant code
 9.  Remove any comments, markdown tags, etc., from the code, if there are any.
-Make sure the final code is clean, well-formatted, and ready to run.
+Make sure the final code is extremely short, well-formatted, no comment,and ready to run.
 """
                     )
                 },
@@ -55,6 +56,7 @@ Make sure the final code is clean, well-formatted, and ready to run.
                 {"role": "user", "content": code}
             ]
         content = self.model_generator.invoke(messages)
+        content = '\n'.join([line for line in content.splitlines() if '```' not in line])
         responses.append(content)
         return responses
 

@@ -1,8 +1,0 @@
-#include <iostream>
-using namespace std;
-
-int main() {
-    auto lambda = [](auto a, auto b) { return a + b; };
-    cout << lambda('a', 'c') << endl;
-    return 0;
-}

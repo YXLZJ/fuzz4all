@@ -1,0 +1,3 @@
+/* The "goto" statement in C is used to transfer control unconditionally to a labelled location within the same function. It causes an unconditional jump to the statement prefixed by the given label. A label, which has function scope, is an identifier followed by a colon and a statement. The "goto" statement cannot be used to enter the scope of a variable-length array or another variably-modified type. If "goto" leaves the scope of a variable-length array, it is deallocated. Declarations are not statements, so a label before a declaration must use a null statement. Note that "goto" has some additional limitations in C++.  */
+/* Please create a short program which combines goto with new C features in a complex way */
+#include <stdlib.h>

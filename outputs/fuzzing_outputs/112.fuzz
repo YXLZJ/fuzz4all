@@ -1,9 +1,0 @@
-#include <iostream>
-#include <string>
-using namespace std;
-
-int main() {
-    auto input = [](){ return "Hello, World!"; };
-    cout << input() << endl;
-    return 0;
-}

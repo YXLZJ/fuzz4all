@@ -1,15 +1,13 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
+#include <stdio.h>
 
 int main() {
-    vector<double> numbers{3.14, -2.78, 0.0};
-    sort(numbers.begin(), numbers.end());
-    
-    for (const auto& num : numbers) {
-        cout << num << " ";
-    }
-    
+    int i = 0;
+    goto label;
+
+label:
+    printf("%d\n", i);
+    i++;
+    if (i < 5) goto label;
+
     return 0;
 }

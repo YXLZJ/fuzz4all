@@ -1,12 +1,14 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
+#include <stdio.h>
 
 int main() {
-    std::string input = "Hello, World!";
-    auto it = std::find(input.begin(), input.end(), 'W');
-    if (it != input.end()) {
-        *it = 'w';
+    int i = 0;
+    goto label;
+
+label:
+    printf("i = %d\n", i);
+    if (i < 5) {
+        i++;
+        goto label;
     }
-    std::cout << input;
+    return 0;
 }

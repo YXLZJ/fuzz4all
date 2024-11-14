@@ -1,14 +1,15 @@
-#include <iostream>
-#include <string_view>
+#include <stdio.h>
 
-int main(int argc, char* argv[]) {
-    std::string_view sv = "Hello World!";
-    if (argc > 1) {
-        for (size_t i = 1; i < argc; ++i) {
-            std::cout << argv[i] << ' ';
-        }
-    } else {
-        std::cout << sv;
+int main() {
+    int i = 0;
+    goto label;
+
+label:
+    if (i < 10) {
+        printf("%d\n", i);
+        ++i;
+        goto label;
     }
+
     return 0;
 }

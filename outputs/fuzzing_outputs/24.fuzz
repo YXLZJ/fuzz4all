@@ -1,17 +1,15 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
+#include <stdio.h>
 
 int main() {
-    vector<int> vec = {1, 4};
-    sort(vec.begin(), vec.end());
-    
-    cout << "Eents s han : ";
-    for (auto it = vec.begin(); it != vec.end(); ++it) {
-        cout << *it;
+    int n = 10;
+    goto label;
+
+    for (int i = 0; i < n; i++) {
+        printf("%d ", i);
     }
-    cout << endl;
-    
+
+label:
+    printf("\nGoto statement executed\n");
+
     return 0;
 }

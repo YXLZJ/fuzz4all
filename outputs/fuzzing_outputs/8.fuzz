@@ -1,8 +1,14 @@
-#include <iostream>
-#include <string_view>
+#include <stdio.h>
 
 int main() {
-    std::string_view str = "Hello, World!";
-    std::cout << str;
+    int i = 0;
+
+    start:
+    if (i < 5) {
+        printf("%d\n", i);
+        i++;
+        goto start;
+    }
+
     return 0;
 }

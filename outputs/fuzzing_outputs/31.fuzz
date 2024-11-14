@@ -1,13 +1,26 @@
-#include <iostream>
-#include <string_view>
+#include <stdio.h>
 
 int main() {
-    std::string str = "Hello, World!";
-    std::string_view sv(str);
-    for (std::size_t i = 0; i < sv.size(); ++i) {
-        if (sv[i] == 'o') {
-            std::cout << "Found o at position: " << i << '\n';
-        }
+    int n = 5;
+    int *arr = (int *)malloc(n * sizeof(int));
+    
+    if (arr == NULL) {
+        goto error;
     }
+
+    for (int i = 0; i < n; i++) {
+        arr[i] = i + 1;
+    }
+
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    free(arr);
     return 0;
+
+error:
+    fprintf(stderr, "Memory allocation failed\n");
+    return 1;
 }

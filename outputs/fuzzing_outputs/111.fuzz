@@ -1,9 +1,0 @@
-#include <iostream>
-#include <string>
-using namespace std;
-
-int main() {
-    auto userInput = getline(cin, string());
-    cout << "You entered: " << userInput << endl;
-    return 0;
-}

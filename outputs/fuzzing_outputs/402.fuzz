@@ -1,9 +1,0 @@
-#include <iostream>
-#include <algorithm> // for std::reverse
-#include <string>     // for std::string
-
-int main() {
-    std::string input = "Hello, World!";
-    std::reverse(input.begin(), input.end());
-    std::cout << input << std::endl;
-}

@@ -1,32 +1,28 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <algorithm>
-#include <numeric>
-#include <functional>
+#include <stdio.h>
 
 int main() {
-    std::vector<std::pair<char, int>> v = {{'a', 1}, {'b', 2}, {'c', 3}};
-    
-    auto sum_of_second_elements = [](const std::vector<std::pair<char, int>>& vec) {
-        return std::accumulate(vec.begin(), vec.end(), 0,
-                               [](int acc, const std::pair<char, int>& p) {
-                                   return acc + p.second;
-                               });
-    };
-    
-    auto max_element = [](const std::vector<std::pair<char, int>>& vec) {
-        return *max_element(vec.begin(), vec.end(), 
-                            [](const std::pair<char, int>& a, const std::pair<char, int>& b) {
-                                return a.second < b.second;
-                            });
-    };
-    
-    auto result = sum_of_second_elements(v);
-    std::cout << "Sum of second elements: " << result << '\n';
-    
-    auto maxPair = max_element(v);
-    std::cout << "Max element pair: (" << maxPair.first << ", " << maxPair.second << ")\n";
-    
+    int n, t;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    if (n > 0) {
+        goto positive;
+    } else if (n < 0) {
+        goto negative;
+    } else {
+        goto zero;
+    }
+
+positive:
+    t = n * 2;
+    printf("Double of the number: %d\n", t);
     return 0;
-}          
+
+negative:
+    t = -n;
+    printf("Absolute value of the number: %d\n", t);
+    return 0;
+
+zero:
+    printf("Number is zero.\n");
+    return 0;
+}

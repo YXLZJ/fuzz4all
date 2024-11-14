@@ -1,17 +1,15 @@
-#include <iostream>
-#include <algorithm>
-#include <vector>
-#include <string>
+#include <stdio.h>
 
 int main() {
-    std::vector<double> numbers = {12, 3.4};
-    
-    auto sort_descending = [](const double& a, const double& b) { return a > b; };
-    std::sort(numbers.begin(), numbers.end(), sort_descending);
-  
-    for (auto num : numbers) {
-        std::cout << "Sorted value: " << num << '\n';
+    int i = 0;
+    goto label;
+
+label:
+    if (i < 50) {
+        printf("%d\n", i);
+        i++;
+        goto label;
     }
-    
+
     return 0;
 }

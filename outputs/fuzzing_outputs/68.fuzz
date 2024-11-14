@@ -1,9 +1,12 @@
-#include <iostream>
-#include <tuple>
-#include <utility>
+#include <stdio.h>
 
 int main() {
-    auto tuple = std::make_tuple(1, "hello", 'c');
-    std::apply([](auto&&... args) { ((std::cout << args), ...); }, tuple);
+    int i = 0;
+    start:
+    if (i < 10) {
+        printf("%d\n", i);
+        i++;
+        goto start;
+    }
     return 0;
 }

@@ -1,14 +1,10 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
+#include <stdio.h>
 
 int main() {
-  std::vector<std::string> words = {"Hello", "World"};
-  
-  for (const auto& word : words) {
-    std::cout << word << ' ';
-  }
-  
-  return 0;
+    int n = 5;
+    goto label;
+
+label:
+    printf("%d\n", n);
+    return 0;
 }

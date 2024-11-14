@@ -1,17 +1,12 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <algorithm>
+#include <stdio.h>
 
 int main() {
-    std::vector<std::string> words{"apple", "banana", "cherry"};
-    
-    auto sort_words = [](const std::string& a, const std::string& b) { return a.size() > b.size(); };
-    std::sort(words.begin(), words.end(), sort_words);
-    
-    for (const auto& word : words) {
-        std::cout << word << ' ';
+    int n = 5;
+    if (n > 0) {
+        goto label;
     }
-    
+    printf("This will not be printed.\n");
+label:
+    printf("n is positive: %d\n", n);
     return 0;
 }

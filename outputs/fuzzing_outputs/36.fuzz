@@ -1,28 +1,15 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <algorithm>
-#include <map>
-using namespace std;
+#include <stdio.h>
 
 int main() {
-    string input = "Et:";
-    vector<char> vectrsring(input.begin(), input.end());
-    map<char, int> arnt;
-    
-    for (auto& l : vectrsring) {
-        if (!isalpha(l)) continue;
-        
-        char key = tolower(l);
-        auto it = arnt.find(key);
-        if (it == arnt.end()) {
-            arnt[key] = 1;
-        } else {
-            arnt[key]++;
-        }
+    int i = 0;
+    goto label;
+
+label:
+    if (i < 10) {
+        printf("%d\n", i);
+        i++;
+        goto label;
     }
-    
-    for (auto& p : arnt) {
-        cout << "" << p.first <<"" <<p.second<<"\n";
-    }
+
+    return 0;
 }

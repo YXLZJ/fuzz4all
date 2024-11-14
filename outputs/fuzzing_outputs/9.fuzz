@@ -1,15 +1,12 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <algorithm>
+#include <stdio.h>
 
 int main() {
-    std::vector<std::string> words = {"apple", "banana", "cherry"};
-    
-    // Use range-based for loop (C++11 feature) to iterate over the vector.
-    for(const auto& word : words) {
-        std::cout << word << ' ';
+    int n = 10;
+    if (n > 5) {
+        goto label;
     }
-    
+    printf("This will not be printed.\n");
+label:
+    printf("n is greater than 5\n");
     return 0;
 }

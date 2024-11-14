@@ -1,16 +1,14 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
+#include <stdlib.h>
 int main() {
-    std::vector<std::pair<char, int>> vec = {{'a', 3}, {'b', 2}};
-    
-    auto it = std::min_element(vec.begin(), vec.end(), [](const auto& a, const auto& b) { return a.second < b.second; });
-    if (it != vec.end()) {
-        std::cout << "Minimum value: " << it->first << ", Count: " << it->second << '\n';
-    } else {
-        std::cout << "Vector is empty.\n";
+    int n = 5;
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+        arr[i] = i + 1;
     }
-    
+    goto print_array;
+print_array:
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
     return 0;
 }

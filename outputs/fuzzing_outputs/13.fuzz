@@ -1,9 +1,12 @@
-#include <iostream>
-using namespace std;
+#include <stdio.h>
 
 int main() {
-    auto lambdaFunction = [] (auto x) { return x * x; };
-    int result = lambdaFunction(5);
-    cout << "Result: " << result << endl;
+    int i = 0;
+    start:
+    if (i < 5) {
+        printf("%d\n", i);
+        i++;
+        goto start;
+    }
     return 0;
 }
