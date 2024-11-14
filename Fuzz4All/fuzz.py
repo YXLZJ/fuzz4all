@@ -133,7 +133,7 @@ def cli(ctx, config_file):
     "model_name",
     "--model_name",
     type=str,
-    default="bigcode/starcoderbase",
+    default="qwen2.5-coder:7b",
     help="model to use",
 )
 @click.option(

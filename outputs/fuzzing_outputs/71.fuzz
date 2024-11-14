@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+void toitan() {
+    int n = 10;
+    goto t;
+    printf("This will not be printed\n");
+t:
+    for (int i = 0; i < n; i++) {
+        if (i == 5) {
+            goto e;
+        }
+        printf("%d ", i);
+    }
+e:
+    printf("\nEnd of loop\n");
+}
+
+int main() {
+    toitan();
+    return 0;
+}

@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main() {
+    int t = 0;
+    goto label;
+
+label:
+    if (t == 0) {
+        printf("Hello, World!\n");
+        t = 1;
+        goto label;
+    }
+
+    return 0;
+}

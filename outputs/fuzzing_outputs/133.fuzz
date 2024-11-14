@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main() {
+    int num = 10;
+    if (num > 5) {
+        goto label;
+    }
+    printf("Number is not greater than 5\n");
+    return 0;
+
+label:
+    printf("Number is greater than 5\n");
+    return 0;
+}

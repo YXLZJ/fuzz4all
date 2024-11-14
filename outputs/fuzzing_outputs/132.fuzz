@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main() {
+    int n, m;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &n, &m);
+    if (n > m) goto swap;
+    else goto print;
+
+swap:
+    int temp = n;
+    n = m;
+    m = temp;
+    goto print;
+
+print:
+    printf("After swapping: n = %d, m = %d\n", n, m);
+    return 0;
+}

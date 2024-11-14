@@ -1,0 +1,14 @@
+#include <stdlib.h>
+
+int main() {
+    int a = 10;
+    if (a > 5) {
+        goto o;
+    }
+    for (int i = 0; i < a; i++) {
+        printf("%d ", i);
+    }
+o:
+    printf("Me line");
+    return 0;
+}

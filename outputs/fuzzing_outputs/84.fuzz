@@ -1,0 +1,12 @@
+#include <stdlib.h>
+
+int main() {
+    int tm = 0, i;
+    for (i = 0; i < 10; i++) {
+        if (i == 5) goto end;
+        tm += i;
+    }
+end:
+    printf("tm = %d\n", tm);
+    return 0;
+}

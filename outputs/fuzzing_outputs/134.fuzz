@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main() {
+    int n = 0;
+    goto label;
+    printf("This will not be printed.");
+label:
+    n++;
+    if (n < 5) goto label;
+    printf("Count: %d\n", n);
+    return 0;
+}

@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+    int *ptr = arr;
+    int i;
+
+    for (i = 0; i < 5; i++) {
+        if (*ptr == 30) {
+            goto found;
+        }
+        ptr++;
+    }
+
+    printf("Not Found\n");
+    return 0;
+
+found:
+    printf("Found at index %d\n", i);
+    return 0;
+}

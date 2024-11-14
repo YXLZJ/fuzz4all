@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main() {
+    int n = 10;
+    int i;
+
+    start:
+    if (i < n) {
+        printf("%d ", i);
+        i++;
+        goto start;
+    }
+
+    return 0;
+}

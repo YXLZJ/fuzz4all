@@ -1,0 +1,14 @@
+#include <stdlib.h>
+
+int main() {
+    int *r = malloc(sizeof(int));
+    if (!r) goto err;
+
+    *r = 1;
+    free(r);
+    return 0;
+
+err:
+    printf("Line failure\n");
+    return 1;
+}

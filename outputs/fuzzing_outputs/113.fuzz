@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {
+    int n = 5;
+    if (n > 0) {
+        goto positive;
+    } else {
+        goto negative;
+    }
+
+positive:
+    printf("Number is positive\n");
+    return 0;
+
+negative:
+    printf("Number is negative\n");
+    return 0;
+}

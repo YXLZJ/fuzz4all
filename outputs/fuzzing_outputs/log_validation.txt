@@ -288,3 +288,363 @@ outputs/fuzzing_outputs/62.fuzz:9:5: note: include the header <stdio.h> or expli
 [VERBOSE] outputs/fuzzing_outputs/69.fuzz is safe
 [TRACE] Validating outputs/fuzzing_outputs/70.fuzz ...
 [VERBOSE] outputs/fuzzing_outputs/70.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/71.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/71.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/72.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/72.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/73.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/73.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/74.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/74.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/75.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/75.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/76.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/76.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/77.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/77.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/78.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/78.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/79.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/79.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/80.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/80.fuzz failed validation with error message: outputs/fuzzing_outputs/80.fuzz:5:23: error: call to undeclared library function 'malloc' with type 'void *(unsigned long)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    5 |     int *arr = (int *)malloc(n * sizeof(int));
+      |                       ^
+outputs/fuzzing_outputs/80.fuzz:5:23: note: include the header <stdlib.h> or explicitly provide a declaration for 'malloc'
+outputs/fuzzing_outputs/80.fuzz:20:5: error: call to undeclared library function 'free' with type 'void (void *)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   20 |     free(arr);
+      |     ^
+outputs/fuzzing_outputs/80.fuzz:20:5: note: include the header <stdlib.h> or explicitly provide a declaration for 'free'
+2 errors generated.
+
+[TRACE] Validating outputs/fuzzing_outputs/81.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/81.fuzz failed validation with error message: outputs/fuzzing_outputs/81.fuzz:9:9: error: call to undeclared library function 'printf' with type 'int (const char *, ...)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    9 |         printf("Array size: %d\n", n);
+      |         ^
+outputs/fuzzing_outputs/81.fuzz:9:9: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
+1 error generated.
+
+[TRACE] Validating outputs/fuzzing_outputs/82.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/82.fuzz failed validation with error message: outputs/fuzzing_outputs/82.fuzz:9:9: error: call to undeclared library function 'printf' with type 'int (const char *, ...)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    9 |         printf("%d ", i);
+      |         ^
+outputs/fuzzing_outputs/82.fuzz:9:9: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
+1 error generated.
+
+[TRACE] Validating outputs/fuzzing_outputs/83.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/83.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/84.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/84.fuzz failed validation with error message: outputs/fuzzing_outputs/84.fuzz:10:5: error: call to undeclared library function 'printf' with type 'int (const char *, ...)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   10 |     printf("tm = %d\n", tm);
+      |     ^
+outputs/fuzzing_outputs/84.fuzz:10:5: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
+1 error generated.
+
+[TRACE] Validating outputs/fuzzing_outputs/85.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/85.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/86.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/86.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/87.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/87.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/88.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/88.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/89.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/89.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/90.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/90.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/91.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/91.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/92.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/92.fuzz failed validation with error message: outputs/fuzzing_outputs/92.fuzz:5:23: error: call to undeclared library function 'malloc' with type 'void *(unsigned long)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    5 |     int *arr = (int *)malloc(n * sizeof(int));
+      |                       ^
+outputs/fuzzing_outputs/92.fuzz:5:23: note: include the header <stdlib.h> or explicitly provide a declaration for 'malloc'
+outputs/fuzzing_outputs/92.fuzz:20:5: error: call to undeclared library function 'free' with type 'void (void *)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   20 |     free(arr);
+      |     ^
+outputs/fuzzing_outputs/92.fuzz:20:5: note: include the header <stdlib.h> or explicitly provide a declaration for 'free'
+2 errors generated.
+
+[TRACE] Validating outputs/fuzzing_outputs/93.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/93.fuzz failed validation with error message: outputs/fuzzing_outputs/93.fuzz:12:5: error: call to undeclared library function 'printf' with type 'int (const char *, ...)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   12 |     printf("Line failure\n");
+      |     ^
+outputs/fuzzing_outputs/93.fuzz:12:5: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
+1 error generated.
+
+[TRACE] Validating outputs/fuzzing_outputs/94.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/94.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/95.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/95.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/96.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/96.fuzz failed validation with error message: outputs/fuzzing_outputs/96.fuzz:5:23: error: call to undeclared library function 'malloc' with type 'void *(unsigned long)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    5 |     int *arr = (int *)malloc(n * sizeof(int));
+      |                       ^
+outputs/fuzzing_outputs/96.fuzz:5:23: note: include the header <stdlib.h> or explicitly provide a declaration for 'malloc'
+outputs/fuzzing_outputs/96.fuzz:21:5: error: call to undeclared library function 'free' with type 'void (void *)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   21 |     free(arr);
+      |     ^
+outputs/fuzzing_outputs/96.fuzz:21:5: note: include the header <stdlib.h> or explicitly provide a declaration for 'free'
+2 errors generated.
+
+[TRACE] Validating outputs/fuzzing_outputs/97.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/97.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/98.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/98.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/99.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/99.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/100.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/100.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/101.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/101.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/102.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/102.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/103.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/103.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/104.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/104.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/105.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/105.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/106.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/106.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/107.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/107.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/108.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/108.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/109.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/109.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/110.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/110.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/111.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/111.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/112.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/112.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/113.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/113.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/114.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/114.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/115.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/115.fuzz failed validation with error message: outputs/fuzzing_outputs/115.fuzz:5:23: error: call to undeclared library function 'malloc' with type 'void *(unsigned long)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    5 |     int *arr = (int *)malloc(n * sizeof(int));
+      |                       ^
+outputs/fuzzing_outputs/115.fuzz:5:23: note: include the header <stdlib.h> or explicitly provide a declaration for 'malloc'
+outputs/fuzzing_outputs/115.fuzz:21:5: error: call to undeclared library function 'free' with type 'void (void *)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   21 |     free(arr);
+      |     ^
+outputs/fuzzing_outputs/115.fuzz:21:5: note: include the header <stdlib.h> or explicitly provide a declaration for 'free'
+2 errors generated.
+
+[TRACE] Validating outputs/fuzzing_outputs/116.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/116.fuzz failed validation with error message: outputs/fuzzing_outputs/116.fuzz:5:5: error: call to undeclared library function 'printf' with type 'int (const char *, ...)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    5 |     printf("Aren't you glad we avoided using goto?");
+      |     ^
+outputs/fuzzing_outputs/116.fuzz:5:5: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
+1 error generated.
+
+[TRACE] Validating outputs/fuzzing_outputs/117.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/117.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/118.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/118.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/119.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/119.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/120.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/120.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/121.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/121.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/122.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/122.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/123.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/123.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/124.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/124.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/125.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/125.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/126.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/126.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/127.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/127.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/128.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/128.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/129.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/129.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/130.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/130.fuzz failed validation with error message: outputs/fuzzing_outputs/130.fuzz:5:23: error: call to undeclared library function 'malloc' with type 'void *(unsigned long)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    5 |     int *arr = (int *)malloc(n * sizeof(int));
+      |                       ^
+outputs/fuzzing_outputs/130.fuzz:5:23: note: include the header <stdlib.h> or explicitly provide a declaration for 'malloc'
+outputs/fuzzing_outputs/130.fuzz:21:5: error: call to undeclared library function 'free' with type 'void (void *)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   21 |     free(arr);
+      |     ^
+outputs/fuzzing_outputs/130.fuzz:21:5: note: include the header <stdlib.h> or explicitly provide a declaration for 'free'
+2 errors generated.
+
+[TRACE] Validating outputs/fuzzing_outputs/131.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/131.fuzz failed validation with error message: outputs/fuzzing_outputs/131.fuzz:8:9: error: call to undeclared library function 'printf' with type 'int (const char *, ...)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    8 |         printf("%d ", i);
+      |         ^
+outputs/fuzzing_outputs/131.fuzz:8:9: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
+outputs/fuzzing_outputs/131.fuzz:13:5: error: call to undeclared library function 'scanf' with type 'int (const char *restrict, ...)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   13 |     scanf("%d", &n);
+      |     ^
+outputs/fuzzing_outputs/131.fuzz:13:5: note: include the header <stdio.h> or explicitly provide a declaration for 'scanf'
+2 errors generated.
+
+[TRACE] Validating outputs/fuzzing_outputs/132.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/132.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/133.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/133.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/134.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/134.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/135.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/135.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/136.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/136.fuzz failed validation with error message: outputs/fuzzing_outputs/136.fuzz:10:33: error: call to undeclared library function 'printf' with type 'int (const char *, ...)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   10 |     for (int i = 0; i < n; i++) printf("%d ", arr[i]);
+      |                                 ^
+outputs/fuzzing_outputs/136.fuzz:10:33: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
+1 error generated.
+
+[TRACE] Validating outputs/fuzzing_outputs/137.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/137.fuzz failed validation with error message: outputs/fuzzing_outputs/137.fuzz:15:5: error: call to undeclared library function 'printf' with type 'int (const char *, ...)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   15 |     printf("Sum: %d\n", sum);
+      |     ^
+outputs/fuzzing_outputs/137.fuzz:15:5: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
+1 error generated.
+
+[TRACE] Validating outputs/fuzzing_outputs/138.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/138.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/139.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/139.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/140.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/140.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/141.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/141.fuzz failed validation with error message: outputs/fuzzing_outputs/141.fuzz:9:9: error: call to undeclared library function 'printf' with type 'int (const char *, ...)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    9 |         printf("%d\n", i);
+      |         ^
+outputs/fuzzing_outputs/141.fuzz:9:9: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
+1 error generated.
+
+[TRACE] Validating outputs/fuzzing_outputs/142.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/142.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/143.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/143.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/144.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/144.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/145.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/145.fuzz failed validation with error message: outputs/fuzzing_outputs/145.fuzz:8:9: error: call to undeclared library function 'printf' with type 'int (const char *, ...)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    8 |         printf("%d\n", i);
+      |         ^
+outputs/fuzzing_outputs/145.fuzz:8:9: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
+1 error generated.
+
+[TRACE] Validating outputs/fuzzing_outputs/146.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/146.fuzz failed validation with error message: outputs/fuzzing_outputs/146.fuzz:5:23: error: call to undeclared library function 'malloc' with type 'void *(unsigned long)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    5 |     int *arr = (int *)malloc(n * sizeof(int));
+      |                       ^
+outputs/fuzzing_outputs/146.fuzz:5:23: note: include the header <stdlib.h> or explicitly provide a declaration for 'malloc'
+outputs/fuzzing_outputs/146.fuzz:19:5: error: call to undeclared library function 'free' with type 'void (void *)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   19 |     free(arr);
+      |     ^
+outputs/fuzzing_outputs/146.fuzz:19:5: note: include the header <stdlib.h> or explicitly provide a declaration for 'free'
+2 errors generated.
+
+[TRACE] Validating outputs/fuzzing_outputs/147.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/147.fuzz failed validation with error message: outputs/fuzzing_outputs/147.fuzz:9:9: error: call to undeclared library function 'printf' with type 'int (const char *, ...)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    9 |         printf("%d ", i);
+      |         ^
+outputs/fuzzing_outputs/147.fuzz:9:9: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
+1 error generated.
+
+[TRACE] Validating outputs/fuzzing_outputs/148.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/148.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/149.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/149.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/150.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/150.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/151.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/151.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/152.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/152.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/153.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/153.fuzz failed validation with error message: outputs/fuzzing_outputs/153.fuzz:10:9: error: call to undeclared library function 'printf' with type 'int (const char *, ...)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   10 |         printf("i: %d, j: %d\n", i, j);
+      |         ^
+outputs/fuzzing_outputs/153.fuzz:10:9: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
+1 error generated.
+
+[TRACE] Validating outputs/fuzzing_outputs/154.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/154.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/155.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/155.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/156.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/156.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/157.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/157.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/158.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/158.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/159.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/159.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/160.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/160.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/161.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/161.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/162.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/162.fuzz failed validation with error message: outputs/fuzzing_outputs/162.fuzz:5:23: error: call to undeclared library function 'malloc' with type 'void *(unsigned long)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    5 |     int *arr = (int *)malloc(n * sizeof(int));
+      |                       ^
+outputs/fuzzing_outputs/162.fuzz:5:23: note: include the header <stdlib.h> or explicitly provide a declaration for 'malloc'
+outputs/fuzzing_outputs/162.fuzz:13:5: error: call to undeclared library function 'free' with type 'void (void *)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   13 |     free(arr);
+      |     ^
+outputs/fuzzing_outputs/162.fuzz:13:5: note: include the header <stdlib.h> or explicitly provide a declaration for 'free'
+2 errors generated.
+
+[TRACE] Validating outputs/fuzzing_outputs/163.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/163.fuzz failed validation with error message: outputs/fuzzing_outputs/163.fuzz:15:5: error: call to undeclared library function 'printf' with type 'int (const char *, ...)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   15 |     printf("Result: %d\n", t);
+      |     ^
+outputs/fuzzing_outputs/163.fuzz:15:5: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
+1 error generated.
+
+[TRACE] Validating outputs/fuzzing_outputs/164.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/164.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/165.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/165.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/166.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/166.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/167.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/167.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/168.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/168.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/169.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/169.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/170.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/170.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/171.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/171.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/172.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/172.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/173.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/173.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/174.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/174.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/175.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/175.fuzz is safe
+[TRACE] Validating outputs/fuzzing_outputs/176.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/176.fuzz failed validation with error message: outputs/fuzzing_outputs/176.fuzz:5:23: error: call to undeclared library function 'malloc' with type 'void *(unsigned long)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    5 |     int *arr = (int *)malloc(n * sizeof(int));
+      |                       ^
+outputs/fuzzing_outputs/176.fuzz:5:23: note: include the header <stdlib.h> or explicitly provide a declaration for 'malloc'
+outputs/fuzzing_outputs/176.fuzz:21:5: error: call to undeclared library function 'free' with type 'void (void *)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   21 |     free(arr);
+      |     ^
+outputs/fuzzing_outputs/176.fuzz:21:5: note: include the header <stdlib.h> or explicitly provide a declaration for 'free'
+2 errors generated.
+
+[TRACE] Validating outputs/fuzzing_outputs/177.fuzz ...
+[VERBOSE] outputs/fuzzing_outputs/177.fuzz failed validation with error message: outputs/fuzzing_outputs/177.fuzz:15:9: error: call to undeclared library function 'printf' with type 'int (const char *, ...)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   15 |         printf("%d ", arr[i]);
+      |         ^
+outputs/fuzzing_outputs/177.fuzz:15:9: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
+1 error generated.
+

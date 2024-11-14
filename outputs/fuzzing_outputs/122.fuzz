@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main() {
+    int n = 0;
+    goto label;
+
+label:
+    if (n < 10) {
+        printf("%d\n", n);
+        n++;
+        goto label;
+    }
+
+    return 0;
+}

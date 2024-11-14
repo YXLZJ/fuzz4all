@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main() {
+    int n = 0;
+    if (n == 0) {
+        goto label1;
+    }
+label1:
+    for (int i = 0; i < 5; i++) {
+        printf("%d\n", i);
+    }
+    return 0;
+}

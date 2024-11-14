@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main() {
+    int i = -1;
+    if (i < 0) {
+        goto end;
+    }
+    printf("This will not be printed.\n");
+end:
+    printf("Program ends here.\n");
+    return 0;
+}

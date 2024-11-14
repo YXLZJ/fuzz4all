@@ -222,3 +222,115 @@ cleanup:
     return 0;
 }
 [VERBOSE] ========== sample =========
+[VERBOSE] /* The "goto" statement in C language is used to transfer control unconditionally to a specified location or label within the same function. It's typically used when conventional constructs can't achieve the desired control transfer. The syntax is "goto label;", where "label" is the target label for the goto statement. 
+
+However, the goto statement cannot jump into the scope of a variable-length array or another variably-modified type. If a goto statement leaves the scope of a variable-length array, the array is deallocated. 
+
+It's important to note that labels in C have function scope, meaning they can be used anywhere in the same function they appear. A label is an identifier followed by a colon and a statement. 
+
+While the goto statement provides powerful control over the flow of a program, it's generally recommended to use it sparingly as it can make code harder to read and understand. */
+/* Please create a short program which combines goto with new C features in a complex way */
+#include <stdlib.h>
+Provide Only the Final Code: Output only the repaired and completed code without any explanations, comments, markdown or additional text.
+Make sure the final code is very short, clean, well-formatted, and ready to run.
+
+[VERBOSE] ========== sample =========
+[VERBOSE] #include <stdlib.h>
+#include <stdio.h>
+
+int main() {
+    int n = 5;
+    int *arr = (int *)malloc(n * sizeof(int));
+    if (!arr) goto cleanup;
+
+    for (int i = 0; i < n; ++i) arr[i] = i * i;
+
+    printf("Array elements: ");
+    for (int i = 0; i < n; ++i) printf("%d ", arr[i]);
+    printf("\n");
+
+cleanup:
+    free(arr);
+    return 0;
+}
+[VERBOSE] ========== sample =========
+[VERBOSE] ========== sample =========
+[VERBOSE] #include <stdlib.h>
+#include <stdio.h>
+
+int main() {
+    int n = 5;
+    int *arr = (int *)malloc(n * sizeof(int));
+    if (!arr) goto cleanup;
+
+    for (int i = 0; i < n; ++i) arr[i] = i * i;
+
+    printf("Array elements: ");
+    for (int i = 0; i < n; ++i) printf("%d ", arr[i]);
+    printf("\n");
+
+cleanup:
+    free(arr);
+    return 0;
+}
+[VERBOSE] ========== sample =========
+[VERBOSE] ========== sample =========
+[VERBOSE] #include <stdlib.h>
+#include <stdio.h>
+
+int main() {
+    int n = 5;
+    int *arr = (int *)malloc(n * sizeof(int));
+    if (!arr) goto cleanup;
+
+    for (int i = 0; i < n; ++i) arr[i] = i * i;
+
+    printf("Array elements: ");
+    for (int i = 0; i < n; ++i) printf("%d ", arr[i]);
+    printf("\n");
+
+cleanup:
+    free(arr);
+    return 0;
+}
+[VERBOSE] ========== sample =========
+[VERBOSE] ========== sample =========
+[VERBOSE] #include <stdlib.h>
+#include <stdio.h>
+
+int main() {
+    int n = 5;
+    int *arr = (int *)malloc(n * sizeof(int));
+    if (!arr) goto cleanup;
+
+    for (int i = 0; i < n; ++i) arr[i] = i * i;
+
+    printf("Array elements: ");
+    for (int i = 0; i < n; ++i) printf("%d ", arr[i]);
+    printf("\n");
+
+cleanup:
+    free(arr);
+    return 0;
+}
+[VERBOSE] ========== sample =========
+[VERBOSE] ========== sample =========
+[VERBOSE] #include <stdlib.h>
+#include <stdio.h>
+
+int main() {
+    int n = 5;
+    int *arr = (int *)malloc(n * sizeof(int));
+    if (!arr) goto cleanup;
+
+    for (int i = 0; i < n; ++i) arr[i] = i * i;
+
+    printf("Array elements: ");
+    for (int i = 0; i < n; ++i) printf("%d ", arr[i]);
+    printf("\n");
+
+cleanup:
+    free(arr);
+    return 0;
+}
+[VERBOSE] ========== sample =========

@@ -1,0 +1,21 @@
+#include <stdlib.h>
+
+int main() {
+    int i, n;
+    goto start;
+
+    for (i = 0; i < n; ++i) {
+        printf("%d ", i);
+    }
+
+start:
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    if (n <= 0) {
+        printf("Error: Invalid input\n");
+        return 1;
+    }
+
+    return 0;
+}

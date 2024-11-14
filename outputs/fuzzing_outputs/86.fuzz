@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+void example() {
+    int i = 0;
+    start:
+    if (i < 5) {
+        printf("%d\n", i);
+        i++;
+        goto start;
+    }
+}
+
+int main() {
+    example();
+    return 0;
+}

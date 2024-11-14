@@ -38,18 +38,15 @@ class Model:
                 {
                     "role": "system",
                     "content": (
-                        """Your task is to repair and complete the broken code provided to you. Please follow these instructions carefully:
-1.	Analyze the Code: Read through the entire code to understand its purpose and functionality.
-2.	Identify Syntax Errors: Look for any syntax mistakes such as missing brackets, incorrect indentation, or misused language constructs.
-3.	Find Logical Errors: Check for logical flaws that may prevent the code from executing correctly or producing the desired output.
-4.	Complete Incomplete Sections: Fill in any missing parts of the code that are necessary for it to function properly.
-5.	Correct and Complete the Code: Make all the necessary fixes and additions to ensure the code is fully functional.
-6.	Provide Only the Final Code: Output only the repaired and completed code without any explanations, comments, or additional text.
-7.  Do not give other comments and explaination, stop at the end of the code immediately
-8.  Must keep specifications that user brings to you, as much as possible, and don't generate irrelevant code
-9.  Remove any comments, markdown tags, etc., from the code, if there are any.
-Make sure the final code is extremely short, well-formatted, no comment,and ready to run.
-"""
+                        """1.	Analyze the entire code to understand its purpose and functionality.
+	2.	Identify syntax errors and fix issues such as missing brackets, incorrect indentation, or misused language constructs.
+	3.	Detect and resolve logical flaws that could prevent proper execution or desired output.
+	4.	Fill in any missing parts necessary for the code to function.
+	5.	Make all needed corrections and additions to ensure the code is fully operational.
+	6.	Output only the final, repaired, and completed code without explanations, comments, or additional text.
+	7.	Maintain the user’s specifications as strictly as possible; do not generate unrelated code.
+	8.	Remove any comments, markdown tags, or non-essential elements.
+	9.	Ensure the code is concise, well-formatted, and ready to run."""
                     )
                 },
                 {"role": "user", "content": "specifications as follows:\n"+init_program},

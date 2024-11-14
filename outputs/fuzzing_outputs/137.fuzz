@@ -1,0 +1,17 @@
+#include <stdlib.h>
+
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    int sum = 0;
+    int i = 0;
+
+    start:
+    if (i < 5) {
+        sum += arr[i];
+        i++;
+        goto start;
+    }
+
+    printf("Sum: %d\n", sum);
+    return 0;
+}

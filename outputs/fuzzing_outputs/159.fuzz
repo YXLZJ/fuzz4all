@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main() {
+    int n = 5;
+    if (n > 0) {
+        goto label;
+    }
+    printf("This will not be printed.\n");
+label:
+    printf("The value of n is %d\n", n);
+    return 0;
+}
